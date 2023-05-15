@@ -1,0 +1,16 @@
+<div class="table">
+    <div class="col" *ngFor="let item of data.payments; let i = index; trackBy: track">
+        <div>
+            <p>
+                Date: {{ item.paymentDate | date:'dd/MM/yyyy'}}
+            </p>
+        </div>
+        <div>
+            <p>
+                {{ 
+                    (item.groupOneAmount+item.groupTwoAmount+item.groupThreeAmount+item.groupFourAmount) | number:'1.6-6'
+                }}
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+div.router.admin {
+    flex: 1;
+    router-outlet + * {
+        flex: 1;
+        padding-top: 50px;
+        &:not(admin-lent-loan-requests-page):not(admin-loan-configuration-page) {
+            overflow-x: auto;
+        }
+    }
+
+    div.error {
+        color: #d44b42;
+        padding: 10px;
+        max-width: 70%;
+        text-align: center;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    div.table-list {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        flex-direction: column;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        table {
+            width: 100%;
+            font-size: 0.9em;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            thead {
+                tr {
+                    background-color: #009879;
+                    color: #ffffff;
+                    text-align: left;
+                }
+            }
+            th,
+            td {
+                padding: 12px 15px;
+            }
+            tbody {
+                tr:nth-of-type(even) {
+                    background-color: #f3f3f3;
+                }
+                tr:last-of-type {
+                    border-bottom: 2px solid #009879;
+                }
+                tr.active-row {
+                    font-weight: bold;
+                    color: #009879;
+                }
+            }
+        }
+        div.actions {
+            justify-content: space-between;
+            padding: 10px;
+            button {
+                &.action {
+                    margin-left: 25px;
+                }
+            }
+        }
+        div.pages {
+            font-size: 12px;
+            button {
+                font-size: 14px;
+                padding: 2px;
+                &.active {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    div.input {
+        width: 100%;
+        max-width: 250px;
+
+        input,
+        select {
+            width: 100%;
+            font-size: 12px;
+            padding: 0 25px 0 10px;
+            height: 36px;
+            color: #000;
+            border: none;
+            box-sizing: border-box;
+            -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        select {
+            background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+)
+                no-repeat 95%;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: transparent;
+        }
+        button {
+            position: absolute;
+            right: 5px;
+            bottom: 10px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    div.router.admin {
+        router-outlet + * {
+            min-width: 100vw;
+        }
+    }
+}

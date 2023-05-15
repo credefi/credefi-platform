@@ -1,0 +1,33 @@
+<mat-toolbar [class.small]="!drawer.active" [class.mobile]="drawer.isMobile" [class.desktop]="!drawer.isMobile">
+    <mat-toolbar-row class="flex">
+        <button class="image-button toggle" (click)="toggleDrawer($event)" matRipple>
+            <lazy-image-component *ngIf="drawer.isMobile; else defaultImage" src="./assets/drawer.png" width="18px"
+                height="18px">
+            </lazy-image-component>
+            <ng-template #defaultImage>
+                <lazy-image-component [src]="drawer.active ? './assets/dedent.png' : './assets/indent.png'" width="18px"
+                    height="18px">
+                </lazy-image-component>
+            </ng-template>
+        </button>
+        <div class="flex">
+            <button class="image-button flex toggle user" (click)="toggleMenu($event)">
+                <span *ngIf="!drawer.isMobile">
+                    {{ email }}
+                    <b class="caret"></b>
+                </span>
+                <lazy-image-component src="./assets/user.png" width="32px" height="32px" matRipple>
+                </lazy-image-component>
+            </button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div #menu class="menu" [class.active]="active">
+    <a *ngFor="let m of menus" (click)="toggleMenu()" [routerLink]="m.link">
+        {{ m.name }}
+    </a>
+    <button class="image-button logout" (click)="logout()">
+        {{ translations['logout'] }}
+    </button>
+</div>

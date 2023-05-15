@@ -1,0 +1,33 @@
+<h4 class="title">
+    <span>{{ translations['title'] }}</span>
+</h4>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex box">
+
+    <h2><span>{{ translations['name-section'] }}</span></h2>
+
+    <mat-form-field color="accent">
+        <mat-label>{{ translations['current-password'] }} </mat-label>
+        <input matInput formControlName="currentPassword" type="password" autocomplete>
+        <mat-error *ngFor="let error of form.controls.currentPassword  | error">
+            {{error}}
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field color="accent">
+        <mat-label>{{ translations['password'] }}</mat-label>
+        <input matInput formControlName="password" type="password" autocomplete>
+        <mat-error *ngFor="let error of form.controls.password  | error">
+            {{error}}
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field color="accent">
+        <mat-label>{{ translations['confirm-password'] }}</mat-label>
+        <input matInput formControlName="passwordConfirm" type="password" autocomplete>
+        <mat-error *ngFor="let error of form.controls.passwordConfirm  | error">
+            {{error}}
+        </mat-error>
+    </mat-form-field>
+
+    <button mat-button [disabled]="isSubmit">{{ translations['submit'] }}</button>
+
+</form>

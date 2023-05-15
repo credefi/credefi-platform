@@ -1,0 +1,19 @@
+<div [class.opened]="opened" (click)="toggle()">
+    <div class="actions">
+        <h3>
+            {{ title }}
+        </h3>
+        <lazy-image-component  [src]="opened ? './assets/opened-expansion.svg' : './assets/closed-expansion.svg'" width="28px" height="28px">
+        </lazy-image-component>
+    </div>
+
+    <div #container class="container">
+        <hr>
+        <p>
+            {{ description }}
+        </p>
+        <p *ngFor="let q of sub; trackBy: track" >
+            {{ q }}
+        </p>
+    </div>
+</div>

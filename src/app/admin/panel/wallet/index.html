@@ -1,0 +1,22 @@
+<div class="title">
+  <h4 class="title">
+    <span>{{ translations['title'] }}</span>
+  </h4>
+</div>
+
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="flex box">
+
+  <h2><span>{{ translations['wallet-section'] }}</span></h2>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['keystore-label'] }} </mat-label>
+    <textarea matInput formControlName="keystore" autocomplete rows="20"></textarea>
+    <mat-error *ngFor="let error of form.controls.keystore  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-button [disabled]="isSubmit">{{ translations['submit'] }}</button>
+
+</form>

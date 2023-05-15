@@ -1,0 +1,30 @@
+<form [formGroup]="privateKeyForm" class="profile-dialog">
+  <div class="header">
+    <h1>{{ translations['privatekey'] }}</h1>
+  </div>
+
+  <div class="body flex">
+
+    <input-component type="password" controlName="password" [placeholder]="translations['wallet-password-placeholder']">
+    </input-component>
+
+    <div class="key flex" *ngIf="privateKey">
+      <div copy>
+        {{this.privateKey}}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="actions flex">
+    <button class="image-button primary" mat-ripple (click)="exportPrivateKey()">
+      {{ translations['submit'] }}
+    </button>
+  </div>
+
+</form>
+
+<button class="image-button dialog-close" mat-ripple (click)="close()">
+  <lazy-image-component src="./assets/cancel.svg" objectFit="contain" width="22px" height="22px" class="round">
+  </lazy-image-component>
+</button>

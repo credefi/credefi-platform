@@ -1,0 +1,124 @@
+div.toolbar-container {
+    height: 64px;
+    div.toolbar {
+        z-index: 13;
+        padding: 0;
+        height: 64px;
+        position: fixed;
+        justify-content: space-between;
+        width: 100%;
+        background: white;
+
+        a {
+            &.logo {
+                lazy-image-component {
+                    width: 150px;
+                    height: 60px;
+                    display: block;
+                    margin-left: 16px;
+                }
+            }
+        }
+
+        div.navigation {
+            height: 100%;
+            align-items: center;
+            overflow: hidden;
+
+            a,
+            button {
+                font-size: 14px;
+                line-height: 15px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: #181818;
+                text-decoration: none;
+                font-style: normal;
+                font-weight: normal;
+                margin: 0 10px;
+                transition: ease 400ms;
+                &:last-child {
+                    margin-right: 20px;
+                }
+
+                &.scan {
+                    padding: 5px;
+                    border-radius: 4px;
+                }
+
+                &.active {
+                    span {
+                        font-weight: 700;
+                    }
+                }
+
+                span {
+                    font-size: 14px;
+                    margin-left: 5px;
+                    font-weight: normal;
+
+                    &::after {
+                        display: block;
+                        content: attr(title);
+                        font-weight: 700;
+                        height: 1px;
+                        color: transparent;
+                        overflow: hidden;
+                        visibility: hidden;
+                    }
+                }
+
+                &:hover {
+                    color: #096b89;
+                }
+            }
+
+            button.drawer {
+                margin: 0 10px;
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    div.navigation {
+        div.desktop {
+            display: none !important;
+        }
+        button.drawer {
+            display: block !important;
+        }
+    }
+}
+
+div.menu {
+    right: 0;
+    top: 64px;
+    opacity: 0;
+    z-index: 11;
+    width: 200px;
+    display: flex;
+    position: fixed;
+    visibility: hidden;
+    transition: ease 200ms;
+    flex-direction: column;
+    background-color: #03179d;
+    border: solid 1px white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+    a,
+    button {
+        font-size: 14px;
+        color: #181818;
+        text-decoration: none;
+        text-align: left;
+        padding: 8px;
+        &:hover {
+            background-color: #021388;
+        }
+    }
+}

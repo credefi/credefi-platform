@@ -1,0 +1,142 @@
+<user-menu-component [title]="translations['title']"></user-menu-component>
+
+<h4>
+    {{ translations['subtitle'] }}
+</h4>
+
+<div class="card-container flex">
+    <div class="head">
+        <div class="item">
+            <h3>
+                {{ translations['limit'] }}
+            </h3>
+            <p>
+                {{ translations['verify'] }}
+            </p>
+        </div>
+        <div class="item">
+            <p class="title">
+                <strong>
+                    Not Verified
+                </strong>
+            </p>
+            <p>
+                {{ translations['personal'] }}
+            </p>
+            <div class="level">
+                <lazy-image-component src="./assets/success.svg" objectFit="contain" width="26px" height="26px">
+                </lazy-image-component>
+            </div>
+        </div>
+        <div class="item">
+            <p class="title">
+                <strong>
+                    Verified
+                </strong>
+            </p>
+            <p>
+                {{ translations['premiumInfo'] }}
+            </p>
+            <div class="level">
+
+                <ng-container *ngIf="user.kycActivation else kycTemplate">
+                    <lazy-image-component src="./assets/success.svg" objectFit="contain" width="26px" height="26px">
+                    </lazy-image-component>
+                </ng-container>
+                <ng-template #kycTemplate>
+                    <div class="unverified">
+                        <div>
+                            <lazy-image-component src="./assets/alert.svg" objectFit="contain" width="26px"
+                                height="26px">
+                            </lazy-image-component>
+                            <span class="red">{{ translations['unverified'] }}</span>
+                        </div>
+                        <button class="image-button" (click)="verification()">
+                            {{ translations['kyc-validate'] }}
+                        </button>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="head">
+        <div class="item margin">
+            <h4>
+                {{ translations['features'] }}
+            </h4>
+        </div>
+    </div>
+    <hr class="small">
+    <div class="head">
+        <div class="item">
+            <p class="subtitle">
+                {{ translations['origination'] }}
+            </p>
+        </div>
+        <div class="item">
+            <p class="subtitle">
+                Not Allowed
+            </p>
+        </div>
+        <div class="item">
+            <p class="subtitle">
+                {{ translations['limited-loan'] }}
+            </p>
+        </div>
+    </div>
+    <hr class="small">
+    <div class="head">
+        <div class="item">
+            <p class="subtitle">
+                {{ translations['deposits'] }}
+            </p>
+        </div>
+        <div class="item">
+            <p class="subtitle-blue">
+                {{ translations['unlimited'] }}
+            </p>
+        </div>
+        <div class="item">
+            <p class="subtitle-blue">
+                {{ translations['unlimited'] }}
+            </p>
+        </div>
+    </div>
+    <hr class="small">
+    <div class="head">
+        <div class="item">
+            <p class="subtitle">
+                {{ translations['withdrawals'] }}
+            </p>
+        </div>
+        <div class="item">
+            <p class="subtitle-blue">
+                {{ translations['unlimited'] }}
+            </p>
+        </div>
+        <div class="item">
+            <p class="subtitle-blue">
+                {{ translations['unlimited'] }}
+            </p>
+        </div>
+    </div>
+    <hr class="small">
+    <div class="head">
+        <div class="item">
+            <p class="subtitle">
+                {{ translations['earn'] }}
+            </p>
+        </div>
+        <div class="item">
+            <p class="subtitle-blue">
+                {{ translations['unlimited'] }}
+            </p>
+        </div>
+        <div class="item">
+            <p class="subtitle-blue">
+                {{ translations['unlimited'] }}
+            </p>
+        </div>
+    </div>
+</div>

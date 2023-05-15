@@ -1,0 +1,30 @@
+<div class="card flex">
+    <form class="wallet" [formGroup]="accountForm">
+
+        <h3> {{translations['create-wallet']}}</h3>
+
+        <input-component type="text" controlName="name" [placeholder]="translations['wallet-name-placeholder']">
+        </input-component>
+
+        <input-component type="password" controlName="password" [placeholder]="translations['wallet-password-placeholder']">
+        </input-component>
+
+        <input-component type="password" controlName="passwordConfirm"
+            [placeholder]="translations['wallet-cpassword-placeholder']">
+        </input-component>
+
+        <div class="alert">
+            <strong>
+                {{ translations['info1'] }}
+            </strong>
+            {{ translations['info2'] }}
+        </div>
+
+        <button class="image-button primary" mat-ripple (click)="onSubmit()" [disabled]="submit">
+            {{ translations['submit'] }}
+        </button>
+
+    </form>
+    <lazy-image-component src="./assets/wallet-container.svg" objectFit="contain" width="200px" height="200px">
+    </lazy-image-component>
+</div>

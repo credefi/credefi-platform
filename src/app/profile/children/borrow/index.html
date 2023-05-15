@@ -1,0 +1,204 @@
+<user-menu-component [title]="translations['borrow']"></user-menu-component>
+
+<h3>
+    Our loan request form is currently closed due to extremely high demand. We will re-open once there is liquidity for new loans. Thank you for supporting us!
+</h3>
+
+<!-- <mat-stepper orientation="vertical" linear="true" class="no-border">
+    <mat-step [stepControl]="formOne">
+
+        <ng-template matStepperIcon="edit">
+            <lazy-image-component src="./assets/okay.svg" objectFit="contain" width="28px" height="28px">
+            </lazy-image-component>
+        </ng-template>
+
+        <ng-template matStepLabel>
+            {{ translations['stepOne'] }}
+            <span>
+                {{ translations['stepOneTitle'] }}
+            </span>
+        </ng-template>
+
+        <form [formGroup]="formOne">
+
+            <div class="flex input">
+
+                <select-component [placeholder]="translations['loanType']" icon="./assets/loans-button-active.svg"
+                    controlName="loanType">
+                    <option-component *ngFor="let it of items; trackBy: trackByKey" [item]="it" [key]="it.key"
+                        [name]="it.name">
+                    </option-component>
+                </select-component>
+
+                <select-component [placeholder]="translations['currency']" icon="./assets/loans-button-active.svg"
+                    controlName="currency">
+                    <option-component *ngFor="let it of currencies | keyvalue : orderKeyValue; trackBy: trackByKey"
+                        [item]="it.value" [key]="it.value.key" [name]="it.value.name">
+                    </option-component>
+                </select-component>
+
+            </div>
+
+            <div class="flex input">
+                <input-component type="number" controlName="amount" [placeholder]="translations['amount']"
+                    [positive]="true">
+                </input-component>
+                <input-component type="number" controlName="months" [placeholder]="translations['months']"
+                    [positive]="true" [hint]="translations['monthsPlaceholder']">
+                </input-component>
+            </div>
+
+            <div class="collateral">
+                <div class="radio">
+                    <p>
+                        {{ translations['collateral'] }}
+                    </p>
+                    <mat-radio-group formControlName="collateral">
+                        <mat-radio-button [value]="true">{{ translations['yes'] }}</mat-radio-button>
+                        <mat-radio-button [value]="false">{{ translations['no'] }}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <input-component type="text" controlName="collateralType"
+                    [placeholder]="translations['collateralType']">
+                </input-component>
+            </div>
+
+            <div class="actions">
+                <button matStepperNext class="primary image-button" mat-ripple>
+                    {{ translations['confirm'] }}
+                </button>
+            </div>
+
+        </form>
+
+    </mat-step>
+    <mat-step [stepControl]="formTwo">
+
+        <ng-template matStepperIcon="edit">
+            <lazy-image-component src="./assets/okay.svg" objectFit="contain" width="28px" height="28px">
+            </lazy-image-component>
+        </ng-template>
+
+        <ng-template matStepLabel>
+            {{ translations['stepTwo'] }}
+            <span>
+                {{ translations['stepTwoTitle'] }}
+            </span>
+        </ng-template>
+
+        <form [formGroup]="formTwo">
+
+            <div class="flex input">
+                <input-component type="text" controlName="companyType" [placeholder]="translations['companyType']">
+                </input-component>
+                <input-component type="text" controlName="companyName" [placeholder]="translations['companyName']">
+                </input-component>
+            </div>
+
+            <div class="flex input">
+                <input-component type="text" controlName="companyWebsite"
+                    [placeholder]="translations['companyWebsite']">
+                </input-component>
+                <div class="flex input">
+                    <input-component type="number" controlName="employees" [placeholder]="translations['employees']"
+                        [positive]="true">
+                    </input-component>
+                    <input-component type="number" controlName="periodIncorporation"
+                        [placeholder]="translations['periodIncorporation']" [positive]="true">
+                    </input-component>
+                </div>
+            </div>
+
+            <div class="flex input">
+                <input-component type="number" controlName="turnOver" [placeholder]="translations['turnOver']"
+                    [positive]="true" hint="USD">
+                </input-component>
+                <input-component type="text" controlName="industry" [placeholder]="translations['industry']">
+                </input-component>
+            </div>
+
+            <div class="actions margin">
+                <button matStepperPrevious class="primary image-button" mat-ripple type="button">
+                    {{ translations['prev'] }}
+                </button>
+                <button matStepperNext class="primary image-button" mat-ripple>
+                    {{ translations['next'] }}
+                </button>
+            </div>
+
+        </form>
+
+    </mat-step>
+    <mat-step [stepControl]="formThree">
+
+        <ng-template matStepperIcon="edit">
+            <lazy-image-component src="./assets/okay.svg" objectFit="contain" width="28px" height="28px">
+            </lazy-image-component>
+        </ng-template>
+
+        <ng-template matStepLabel>
+            {{ translations['stepThree'] }}
+            <span>
+                {{ translations['stepThreeTitle'] }}
+            </span>
+        </ng-template>
+
+        <form [formGroup]="formThree">
+
+            <div class="flex input">
+                <input-component type="text" controlName="fullName" [placeholder]="translations['fullName']">
+                </input-component>
+                <input-component type="date" controlName="dateOfBirth" [placeholder]="translations['dateOfBirth']">
+                </input-component>
+            </div>
+
+            <div class="flex input">
+                <input-component type="text" controlName="phoneNumber" [placeholder]="translations['phoneNumber']">
+                </input-component>
+                <input-component type="email" controlName="email" [placeholder]="translations['email']">
+                </input-component>
+            </div>
+
+            <div class="collateral">
+                <div class="radio">
+                    <p>
+                        {{ translations['shareholders'] }}
+                    </p>
+                    <mat-radio-group formControlName="shareholders">
+                        <mat-radio-button [value]="true">{{ translations['yes'] }}</mat-radio-button>
+                        <mat-radio-button [value]="false">{{ translations['no'] }}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <input-component type="text" controlName="shareholdersPercent"
+                    [placeholder]="translations['shareholdersPercent']"
+                    [readonly]="!formThree.get('shareholders')?.value">
+                </input-component>
+            </div>
+
+            <div class="collateral">
+                <div class="radio">
+                    <p>
+                        {{ translations['authorized'] }}
+                    </p>
+                    <mat-radio-group formControlName="authorized">
+                        <mat-radio-button [value]="true">{{ translations['yes'] }}</mat-radio-button>
+                        <mat-radio-button [value]="false">{{ translations['no'] }}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+            </div>
+
+            <div class="actions margin">
+                <button matStepperPrevious class="primary image-button" mat-ripple type="button">
+                    {{ translations['prev'] }}
+                </button>
+                <button matStepperNext class="primary image-button" mat-ripple [disabled]="isSubmit"
+                    (click)="onSubmit()">
+                    {{ translations['apply'] }}
+                </button>
+            </div>
+
+        </form>
+
+    </mat-step>
+</mat-stepper> -->

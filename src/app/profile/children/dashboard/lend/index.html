@@ -1,0 +1,131 @@
+<div class="flex info">
+    <div class="total">
+        <div class="balances">
+            <div class="balance">
+                <span class="title">
+                    {{ translations['fundsAvailable'] }}
+                </span>
+                <p>
+                    {{ balance | number:'1.2-2' }} <span>USD</span>
+                </p>
+            </div>
+            <div class="balance">
+                <span class="title">
+                    {{ translations['fundsDeployed'] }}
+                </span>
+                <p>
+                    {{ fundsDeployed | number:'1.2-2' }} <span>USD</span>
+                </p>
+            </div>
+        </div>
+        <canvas #chartElement></canvas>
+    </div>
+    <div class="interest">
+        <div class="balance">
+            <span class="title help" matTooltipTouchGestures="off" [matTooltip]="translations['tir-tooltip']">
+                {{ translations['interestReceived'] }}
+            </span>
+            <p>
+                {{ interestReceived | number:'1.2-2' }} <span>USD</span>
+            </p>
+        </div>
+        <div class=" balance">
+            <span class="title help" matTooltipTouchGestures="off" [matTooltip]="translations['ar-tooltip']">
+                {{ translations['rewards'] }}
+            </span>
+            <p>
+                {{ 0 | number:'1.2-2' }} <span>CREDI</span>
+            </p>
+        </div>
+    </div>
+    <div class="payment">
+        <div class="balance">
+
+            <span class="title help" matTooltipTouchGestures="off" [matTooltip]="translations['npd-tooltip']">
+                {{ translations['nextPaymentDay'] }}
+            </span>
+            <p>
+                <lazy-image-component src="./assets/calendar.svg" objectFit="contain" width="24px" height="24px">
+                </lazy-image-component>
+                <ng-container *ngIf="hasNextPaymentDate else noNextPayment">
+                    {{ next.nextPaymentDate | date:'dd/MM/yy' }}
+                </ng-container>
+                <ng-template #noNextPayment>
+                    --/--/--
+                </ng-template>
+
+            </p>
+        </div>
+        <div class="balance">
+
+            <span class="title help" matTooltipTouchGestures="off" [matTooltip]="translations['npa-tooltip']">
+                {{ translations['nextPaymentAmount'] }}
+            </span>
+            <p>
+                <lazy-image-component src="./assets/dollar-round.svg" objectFit="contain" width="24px" height="24px">
+                </lazy-image-component>
+
+                <ng-container *ngIf="hasNextPaymentDate else noNextPaymentAmountTemplate">
+                    {{ next.nextPaymentAmount | number:'1.2-2' }} <span>USD</span>
+                </ng-container>
+                <ng-template #noNextPaymentAmountTemplate>
+                    --/-- <span>USD</span>
+                </ng-template>
+            </p>
+        </div>
+        <hr>
+        <div class="flex space">
+            <div class="balance">
+
+                <span class="title">
+                    {{ translations['acruedInterest'] }}
+                </span>
+                <p>
+                    {{ 0 | number:'1.2-2' }} <span>USD</span>
+
+                </p>
+            </div>
+            <div class="balance timer">
+
+                <span class="title">
+                    {{ translations['countDown'] }}
+                </span>
+
+                <ng-container *ngIf="hasNextPaymentDate else noTimer">
+                    <p>
+                        {{dateTime }}
+                    </p>
+                </ng-container>
+                <ng-template #noTimer>
+                    <p>00:00:00</p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tvl">
+    {{ translations['tvl'] }}:
+    <p>
+        &#160;{{ (tvl | number:'1.2-2') }}
+        <span>USD</span>
+    </p>
+</div>
+<div class="apy">
+    <h4>
+        {{ translations['apy'] }}
+    </h4>
+    <div class="flex">
+        <div class="chart-container horizontal relative">
+            <canvas #chartHorizontalElement></canvas>
+        </div>
+        <div class="chart-container pie relative">
+            <h3>
+                Portfolio allocation
+            </h3>
+            <canvas #chartDoughnutElement></canvas>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

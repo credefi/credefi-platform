@@ -1,0 +1,233 @@
+<user-menu-component [title]="translations['modulex']"></user-menu-component>
+
+<div class="flex info">
+
+    <div class="stake">
+
+        <div class="balances">
+
+            <div class="balance">
+                <span class="title">
+                    {{ translations['available'] }}
+                </span>
+                <p>
+                    {{ available | number:'1.2-2' }} <span>CREDI</span>
+                </p>
+            </div>
+
+            <div class="balance">
+                <span class="title">
+                    {{ translations['staked'] }}
+                </span>
+                <p>
+                    {{ myStakedBalance | number:'1.2-2' }} <span>CREDI</span>
+                </p>
+            </div>
+
+            <div class="balance"></div>
+
+            <button class="image-button default" mat-ripple
+                [class.error]="form.get('wallet')?.hasError('required') && isSubmitted" (click)="connect()">
+                <span *ngIf="this.address else addressTemplate" class="metamask">
+                    <lazy-image-component src="./assets/metamask.svg" objectFit="contain" width="22px" height="22px">
+                    </lazy-image-component>
+                    <strong>{{ this.address }}</strong>
+                </span>
+                <ng-template #addressTemplate>
+                    <span>
+                        {{ this.translations['connect'] }}
+                    </span>
+                </ng-template>
+            </button>
+
+        </div>
+
+        <form class="actions" [formGroup]="form" (ngSubmit)="submit()">
+
+            <div class="actions">
+                <input-component type="number" controlName="amount" [placeholder]="translations['amount']"
+                    [hint]="translations['amount']" [positive]="true" icon="/assets/stake-credi.svg"
+                    [button]="translations['max']" (action)="setMaxBalance()" [disabled]="true">
+                </input-component>
+                <button class="image-button primary" mat-ripple [disabled]="true">
+                    {{ translations['stake'] }}
+                </button>
+            </div>
+
+            <div class="label">
+                {{ translations['lock'] }}
+            </div>
+
+            <!-- <mat-slider min="6" max="60" step="1" (input)="setMonths($event)" disabled="true">
+            </mat-slider> -->
+
+            <div class="error" *ngIf="form.get('months')?.hasError('required') && isSubmitted">
+                {{ translations['error-months'] }}
+            </div>
+
+            <div class="error" *ngIf="error.length > 0">
+                {{ error }}
+            </div>
+
+            <div class="months">
+                <span>
+                    <!-- {{ translations['min-value'] }} -->
+                    <strong *ngIf="form.get('months')?.value">
+                        {{ form.get('months')?.value }} {{ translations['months'] }}
+                    </strong>
+                </span>
+                <!-- <span>
+                    {{ translations['max-value'] }}
+                </span> -->
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="title-label">
+        {{ translations['modulex-title'] }}
+    </div>
+
+    <div class="modulex flex">
+        <div class="item flex">
+            <h4>
+                {{ translations['mtitle1'] }}
+            </h4>
+            <h3>
+                0
+            </h3>
+        </div>
+        <div class="item flex">
+            <h4 class="help" matTooltipTouchGestures="off" [matTooltip]="translations['mx-tooltip']" class="help">
+                {{ translations['mtitle2'] }}
+            </h4>
+            <h3>
+                1.0
+            </h3>
+        </div>
+        <div class="item flex">
+            <h4 class="strong">
+                {{ translations['mtitle3'] }}
+            </h4>
+            <h3>
+                ${{ price * stakingBalance | number:'1.2-2' }}
+            </h3>
+        </div>
+        <div class="item flex">
+            <h4 class="help" matTooltipTouchGestures="off" [matTooltip]="translations['xe-tooltip']" class="help">
+                {{ translations['mtitle4'] }}
+            </h4>
+            <h3>
+                $0.00
+            </h3>
+        </div>
+        <div class="item flex">
+            <h4 class="help" matTooltipTouchGestures="off" [matTooltip]="translations['xc-tooltip']" class="help">
+                {{ translations['mtitle5'] }}
+            </h4>
+            <h3>
+                0.00
+            </h3>
+        </div>
+    </div>
+
+    <div class="status">
+        <div class="item">
+            <div class="title-label">
+                {{ translations['stats'] }}
+            </div>
+            <div class="stats-box">
+                <div class="text">
+                    <span>
+                        {{ translations['xstats1'] }}
+                    </span>
+                    <span>
+                        968,573,880.00
+                    </span>
+                </div>
+                <div class="text">
+                    <span>
+                        {{ translations['xstats2'] }}
+                    </span>
+                    <span>
+                        494,573,879.60
+                    </span>
+                </div>
+                <div class="text">
+                    <span>
+                        {{ translations['xstats3'] }}
+                    </span>
+                    <span>
+                        {{ stakingBalance | number:'1.0-0' }}
+                    </span>
+                </div>
+                <div class="text">
+                    <span>
+                        {{ translations['xstats4'] }}
+                    </span>
+                    <span>
+                        31,426,120
+                    </span>
+                </div>
+                <div class="text">
+                    <span>
+                        {{ translations['xstats5'] }}
+                    </span>
+                    <span>
+                        ${{ price | number:'1.3-3' }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="title-label">
+                {{ translations['xstats'] }}
+            </div>
+            <div class="stats-box">
+                <div class="text">
+                    <span>
+                        {{ translations['xstats6'] }}
+                    </span>
+                    <span>
+                        3,713,120.94
+                    </span>
+                </div>
+                <div class="text">
+                    <span>
+                        {{ translations['xstats7'] }}
+                    </span>
+                    <span>
+                        3,713,120.94
+                    </span>
+                </div>
+                <div class="text">
+                    <span>
+                        {{ translations['xstats8'] }}
+                    </span>
+                    <span>
+                        0
+                    </span>
+                </div>
+                <div class="text">
+                    <span>
+                        {{ translations['xstats9'] }}
+                    </span>
+                    <span>
+                        0
+                    </span>
+                </div>
+                <div class="text">
+                    <span>
+                        {{ translations['xstats10'] }}
+                    </span>
+                    <span>
+                        $0.00
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

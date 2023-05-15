@@ -1,0 +1,16 @@
+<button class="image-button close" matRipple (click)="close()">
+    <lazy-image-component src="/assets/cancel.svg" width="18px" height="18px" objectFit="contain">
+
+    </lazy-image-component>
+</button>
+<div class="table-list">
+    <table class="styled-table">
+        <tbody class="small-scroll">
+            <tr *ngFor="let table of data?.group">
+                <td *ngFor="let item of table; let i = index;">
+                    {{ item }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

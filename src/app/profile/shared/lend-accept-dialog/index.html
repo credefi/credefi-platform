@@ -1,0 +1,203 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="small-scroll">
+
+  <h3 class="sub-title">
+    SCHEDULE 2
+  </h3>
+
+  <h4 class="sub-title">
+    Provision of Funds Notice
+  </h4>
+
+  <p class="title">
+    To: CREDEFI OOD
+  </p>
+
+  <p class="title">
+    Dated: {{ date | date:'dd/MM/YYYY' }}
+  </p>
+
+  <p class="title">
+    Dear Sirs
+  </p>
+
+  <h2 class="sub-title">
+    Facility Agreement<br>
+    dated {{ date | date:'dd/MM/YYYY' }} (the “Agreement”)
+  </h2>
+
+  <p>
+    1. We refer to the Agreement. This is a Provision of Funds Notice. Terms defined in the Agreement have the same
+    meaning in this Provision of Funds Notice.
+  </p>
+
+  <p>
+    2. We wish to Lend Funds to the provided set of Borrowers in Schedule1 under the Facility on the following terms:
+  </p>
+
+  <div class="table">
+    <div class="col">
+      <div>
+        <p>
+          Date:
+        </p>
+      </div>
+      <div>
+        <p>
+          {{ date | date:'dd/MM/YYYY' }} (or, if that is not a Business Day, the next Business Day)
+        </p>
+      </div>
+    </div>
+    <div class="col" *ngIf="groupOneAmount > 0">
+      <div>
+        <p>
+          Group:
+        </p>
+        <p>
+          Amount:
+        </p>
+        <p>
+          Interest Rate:
+        </p>
+        <p>
+          Duration:
+        </p>
+      </div>
+      <div>
+        <p>
+          {{ configuration.groupOneName }}
+        </p>
+        <p>
+          {{ groupOneAmount }} {{ currency }}
+        </p>
+        <p>
+          {{ configuration.groupOneInterest }}% per annum
+        </p>
+        <p>
+          {{ months }} {{ months == 1 ? 'month' : 'months' }}
+        </p>
+
+      </div>
+    </div>
+    <div class="col" *ngIf="groupTwoAmount > 0">
+      <div>
+        <p>
+          Group:
+        </p>
+        <p>
+          Amount:
+        </p>
+        <p>
+          Interest Rate:
+        </p>
+        <p>
+          Duration:
+        </p>
+      </div>
+      <div>
+        <p>
+          {{ configuration.groupTwoName }}
+        </p>
+        <p>
+          {{ groupTwoAmount }} {{ currency }}
+        </p>
+        <p>
+          {{ configuration.groupTwoInterest }}% per annum
+        </p>
+        <p>
+          {{ months }} {{ months == 1 ? 'month' : 'months' }}
+        </p>
+
+      </div>
+    </div>
+    <div class="col" *ngIf="groupThreeAmount > 0">
+      <div>
+        <p>
+          Group:
+        </p>
+        <p>
+          Amount:
+        </p>
+        <p>
+          Interest Rate:
+        </p>
+        <p>
+          Duration:
+        </p>
+      </div>
+      <div>
+        <p>
+          {{ configuration.groupThreeName }}
+        </p>
+        <p>
+          {{ groupThreeAmount }} {{ currency }}
+        </p>
+        <p>
+          {{ configuration.groupThreeInterest }}% per annum
+        </p>
+        <p>
+          {{ months }} {{ months == 1 ? 'month' : 'months' }}
+        </p>
+
+      </div>
+    </div>
+    <div class="col" *ngIf="groupFourAmount > 0">
+      <div>
+        <p>
+          Group:
+        </p>
+        <p>
+          Amount:
+        </p>
+        <p>
+          Interest Rate:
+        </p>
+        <p>
+          Duration:
+        </p>
+      </div>
+      <div>
+        <p>
+          {{ configuration.groupFourName }}
+        </p>
+        <p>
+          {{ groupFourAmount }} {{ currency }}
+        </p>
+        <p>
+          {{ configuration.groupFourInterest }}% per annum
+        </p>
+        <p>
+          {{ months }} {{ months == 1 ? 'month' : 'months' }}
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <p>
+    3. We hereby confirm:
+    each condition specified in the Agreement is satisfied on this date.
+  </p>
+
+  <p>
+    4. This Provision of Funds Notice is irrevocable.
+  </p>
+
+  <div class="checkbox">
+    <mat-checkbox color="primary" labelPosition="before" formControlName="accept"
+      [class.error]="submitted && form.get('accept')?.hasError('required')">
+      I have read and agree to Provision of Funds Notice
+    </mat-checkbox>
+  </div>
+
+  <div class="actions flex">
+    <button class="image-button primary" [disabled]="submit" matRipple>
+      {{ translations['submit'] }}
+    </button>
+  </div>
+
+</form>
+
+<button class="image-button dialog-close" mat-ripple (click)="close()">
+  <lazy-image-component src="./assets/cancel.svg" objectFit="contain" width="22px" height="22px" class="round">
+  </lazy-image-component>
+</button>

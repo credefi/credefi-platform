@@ -1,0 +1,1 @@
+export { FilePickerModule } from './module'

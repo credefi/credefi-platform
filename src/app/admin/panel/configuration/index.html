@@ -1,0 +1,265 @@
+<div class="title">
+  <h4 class="title">
+    <span>{{ translations['title'] }}</span>
+  </h4>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex box">
+
+  <input #groupOneInput type="file" />
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupOneName'] }} </mat-label>
+    <input matInput class="small" formControlName="groupOneName" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupOneName')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupOneInterest'] }} </mat-label>
+    <input matInput class="small" formControlName="groupOneInterest" type="number" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupOneInterest')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupOneRisk'] }} </mat-label>
+    <input matInput class="small" formControlName="groupOneRisk" type="number" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupOneRisk')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupOne'] }} </mat-label>
+    <input matInput class="small" formControlName="groupOne" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupOne')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <div class="actions flex">
+    <button mat-button type="button" (click)="onUpload(groupOneInput,'groupOneDescription')" [disabled]="submit">
+      {{ translations['upload-csv'] }}
+    </button>
+  </div>
+
+  <div class="table-list">
+    <table class="styled-table">
+      <tbody class="small-scroll">
+        <tr *ngFor="let table of configuration.groupOneDescription">
+          <td *ngFor="let item of table; let i = index;">
+            {{ item }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+  <br>
+
+  <input #groupTwoInput type="file" />
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupTwoName'] }} </mat-label>
+    <input matInput class="small" formControlName="groupTwoName" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupTwoName')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupTwoInterest'] }} </mat-label>
+    <input matInput class="small" formControlName="groupTwoInterest" type="number" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupTwoInterest')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupTwoRisk'] }} </mat-label>
+    <input matInput class="small" formControlName="groupTwoRisk" type="number" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupTwoRisk')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupTwo'] }} </mat-label>
+    <input matInput class="small" formControlName="groupTwo" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupTwo')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <div class="actions flex">
+    <button mat-button type="button" (click)="onUpload(groupTwoInput,'groupTwoDescription')" [disabled]="submit">
+      {{ translations['upload-csv'] }}
+    </button>
+  </div>
+
+  <div class="table-list">
+    <table class="styled-table">
+      <tbody class="small-scroll">
+        <tr *ngFor="let table of configuration.groupTwoDescription">
+          <td *ngFor="let item of table; let i = index;">
+            {{ item }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+  <br>
+
+  <input #groupThreeInput type="file" />
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupThreeName'] }} </mat-label>
+    <input matInput class="small" formControlName="groupThreeName" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupThreeName')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupThreeInterest'] }} </mat-label>
+    <input matInput class="small" formControlName="groupThreeInterest" type="number" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupThreeInterest')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupThreeRisk'] }} </mat-label>
+    <input matInput class="small" formControlName="groupThreeRisk" type="number" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupThreeRisk')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupThree'] }} </mat-label>
+    <input matInput class="small" formControlName="groupThree" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupThree')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <div class="actions flex">
+    <button mat-button type="button" (click)="onUpload(groupThreeInput,'groupThreeDescription')" [disabled]="submit">
+      {{ translations['upload-csv'] }}
+    </button>
+  </div>
+
+  <div class="table-list">
+    <table class="styled-table">
+      <tbody class="small-scroll">
+        <tr *ngFor="let table of configuration.groupThreeDescription">
+          <td *ngFor="let item of table; let i = index;">
+            {{ item }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+  <br>
+
+  <input #groupFourInput type="file" />
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupFourName'] }} </mat-label>
+    <input matInput class="small" formControlName="groupFourName" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupFourName')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupFourInterest'] }} </mat-label>
+    <input matInput class="small" formControlName="groupFourInterest" type="number" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupFourInterest')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupFourRisk'] }} </mat-label>
+    <input matInput class="small" formControlName="groupFourRisk" type="number" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupFourRisk')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['groupFour'] }} </mat-label>
+    <input matInput class="small" formControlName="groupFour" autocomplete>
+    <mat-error *ngFor="let error of form.get('groupFour')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <div class="actions flex">
+    <button mat-button type="button" (click)="onUpload(groupFourInput,'groupFourDescription')" [disabled]="submit">
+      {{ translations['upload-csv'] }}
+    </button>
+    <br>
+  </div>
+
+  <div class="table-list">
+    <table class="styled-table">
+      <tbody class="small-scroll">
+        <tr *ngFor="let table of configuration.groupFourDescription">
+          <td *ngFor="let item of table; let i = index;">
+            {{ item }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['maxLendingAmount'] }} </mat-label>
+    <input matInput formControlName="maxLendingAmount" autocomplete type="number">
+    <mat-error *ngFor="let error of form.get('maxLendingAmount')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['stakingAddress'] }} </mat-label>
+    <input class="small" matInput formControlName="crediStakingAddress" autocomplete>
+    <mat-error *ngFor="let error of form.get('crediStakingAddress')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['mercuryoioLendingAddress'] }} </mat-label>
+    <input class="small" matInput formControlName="mercuryoioLendingAddress" autocomplete>
+    <mat-error *ngFor="let error of form.get('mercuryoioLendingAddress')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>{{ translations['referral'] }} </mat-label>
+    <input type="number" class="small" matInput formControlName="referral" autocomplete>
+    <mat-error *ngFor="let error of form.get('referral')  | error">
+      {{error}}
+    </mat-error>
+  </mat-form-field>
+
+  <div class="actions flex">
+    <button mat-button [disabled]="submit">{{ translations['submit'] }}</button>
+  </div>
+
+</form>

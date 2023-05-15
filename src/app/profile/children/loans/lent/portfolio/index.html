@@ -1,0 +1,108 @@
+<virtual-scroller #scroll [items]="items" [parentScroll]="scroll.window">
+
+    <div class="card-container" *ngFor="let item of scroll.viewPortItems; trackBy: trackByFn">
+        <div class="item">
+            <div class="init">
+                <lazy-image-component src="./assets/calendar.svg" objectFit="contain" width="28px" height="28px">
+                </lazy-image-component>
+                <p>
+                    {{ translations['date'] }}
+                </p>
+                <h3>
+                    {{ item.createdAt | date:'dd/MM/yy' }}
+                </h3>
+            </div>
+            <div class="body">
+                <div class="info">
+                    <p>
+                        {{ translations['portfolio'] }}
+                    </p>
+                    <h3>
+                        {{ item.name }}
+                    </h3>
+                </div>
+                <div class="info">
+                    <p>
+                        {{ translations['interest'] }}
+                    </p>
+                    <h3>
+                        {{ item.interest }} %
+                    </h3>
+                </div>
+                <div class="info">
+                    <p>
+                        {{ translations['status'] }}
+                    </p>
+                    <h3>
+                        {{ translations[item.status] }}
+                    </h3>
+                </div>
+                <div class="info">
+                    <p>
+                        {{ translations['amount'] }}
+                    </p>
+                    <h3>
+                        {{ item.amount | number:'1.2-2' }} {{ item.currency?.name }}
+                    </h3>
+                </div>
+                <div class="info">
+                    <p>
+                        {{ translations['interest-received'] }}
+                    </p>
+                    <h3>
+                        {{ item.totalInterest | number: '1.2-2' }} {{ item.currency?.name }}
+                    </h3>
+                </div>
+                <div class="info">
+                    <p>
+                        {{ translations['duration'] }}
+                    </p>
+                    <h3>
+                        {{ item.duration }} {{ item.duration == 1 ? translations['month'] :
+                        translations['months']
+                        }}
+                    </h3>
+                </div>
+            </div>
+            <div class="payment">
+                <div class="balance">
+                    <span class="title">
+                        {{ translations['next-date'] }}
+                    </span>
+
+                    <p
+                        *ngIf="(item.status == statuses.unconfirmed.key || item.status == statuses.completed.key ) else confirmedTemplate">
+                        --/--/--
+                    </p>
+                    <ng-template #confirmedTemplate>
+                        <p>
+                            {{ (item.nextPaymentDate | date:'dd/MM/yy') }}
+                        </p>
+                    </ng-template>
+
+                </div>
+                <div class="balance">
+                    <span class="title">
+                        {{ translations['next-amount'] }}
+                    </span>
+                    <p>
+
+                        <ng-container *ngIf="(item.status == statuses.unconfirmed.key ||
+                                    item.status == statuses.completed.key ) else
+                                    confirmedTemplateUSD">
+                            --/--
+                        </ng-container>
+
+                        <ng-template #confirmedTemplateUSD>
+                            {{ item.nextPayment |number:'1.2-2'}}
+                        </ng-template>
+
+                        <span>USD</span>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</virtual-scroller>

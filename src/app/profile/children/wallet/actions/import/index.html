@@ -1,0 +1,12 @@
+<div class="card flex">
+    <div class="wallet">
+        <button class="image-button accent" mat-ripple (click)="onPostExistingAccount()">
+            {{ translations['keystore'] }}
+        </button>
+        <button class="image-button accent" mat-ripple (click)="onPostFromPrivateKey()">
+            {{ translations['privatekey'] }}
+        </button>
+    </div>
+    <lazy-image-component src="./assets/wallet-container.svg" objectFit="contain" width="200px" height="200px">
+    </lazy-image-component>
+</div>

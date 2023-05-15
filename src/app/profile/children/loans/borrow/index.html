@@ -1,0 +1,14 @@
+<div>
+    <h3 class="title">
+        {{ translations['borrowed'] }}
+    </h3>
+</div>
+<div class="children">
+    <a routerLink="/profile/loans/borrow/active" routerLinkActive="active">
+        {{ translations['active'] }}
+    </a>
+    <a routerLinkActive="active">
+        {{ translations['approval'] }}
+    </a>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,42 @@
+<form [formGroup]="accountForm" class="profile-dialog">
+
+  <div class="header">
+    <h1> {{translations['create-wallet']}}</h1>
+  </div>
+
+  <div class="body flex">
+
+    <input-component type="text" controlName="name" [placeholder]="translations['wallet-name-placeholder']">
+    </input-component>
+
+    <input-component type="text" controlName="privateKey" [placeholder]="translations['wallet-privateKey-placeholder']">
+    </input-component>
+
+    <input-component type="password" controlName="password" [placeholder]="translations['wallet-password-placeholder']">
+    </input-component>
+
+    <input-component type="password" controlName="passwordConfirm"
+      [placeholder]="translations['wallet-cpassword-placeholder']">
+    </input-component>
+
+  </div>
+
+  <div class="alert">
+    <strong>
+      {{ translations['info1'] }}
+    </strong>
+    {{ translations['info2'] }}
+  </div>
+
+  <div class="actions flex">
+    <button class="primary image-button" mat-ripple (click)="onSubmit()" [disabled]="submit">
+      {{ translations['submit'] }}
+    </button>
+  </div>
+
+</form>
+
+<button class="image-button dialog-close" mat-ripple (click)="close()">
+  <lazy-image-component src="./assets/cancel.svg" objectFit="contain" width="22px" height="22px" class="round">
+  </lazy-image-component>
+</button>

@@ -1,0 +1,129 @@
+:host {
+    display: block;
+    min-height: 64px;
+    padding-bottom: 20px;
+}
+
+div.input {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    position: relative;
+
+    span {
+        font-size: 12px;
+        margin-bottom: 5px;
+        color: #434343;
+    }
+
+    input {
+        height: 40px;
+        padding: 0 10px !important;
+    }
+
+    textarea {
+        min-height: 40px;
+        padding: 10px !important;
+    }
+
+    div.input-container {
+        background: #f1f2f7;
+        border: 1px solid rgba(31, 60, 135, 0.1);
+        box-sizing: border-box;
+        border-radius: 4px;
+        width: 100%;
+        padding: 0;
+        transition: ease border 200ms, ease background-color 200ms;
+        z-index: 2;
+        display: flex;
+        lazy-image-component {
+            margin-left: 10px;
+            align-self: center;
+            &.icon-right {
+                margin: 0 10px 0 0;
+            }
+        }
+        button {
+            border: 1px solid rgba(31, 60, 135, 0.1);
+            color: var(--light-blue);
+            font-weight: 500;
+            border-radius: 4px;
+            margin: 5px 10px 5px 5px;
+            padding: 4px 20px;
+        }
+    }
+
+    input,
+    textarea {
+        background: transparent;
+        border: 0;
+        outline: 0;
+        box-sizing: border-box;
+        width: 100%;
+        z-index: 2;
+        &:focus {
+            outline: none !important;
+        }
+    }
+
+    &.submited {
+        div.input-container.ng-invalid,
+        div.input-container.ng-invalid {
+            border: 1px solid #d00e00;
+            background-color: #ffdbdb;
+
+            ~ div.errors {
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: translateY(2px) !important;
+            }
+            ~ span {
+                color: #d00e00;
+            }
+        }
+    }
+
+    div.input-container.ng-invalid.ng-touched,
+    div.input-container.ng-invalid.ng-touched {
+        border: 1px solid #d00e00;
+        background-color: #ffdbdb;
+
+        ~ div.errors {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(2px) !important;
+        }
+        ~ span {
+            color: #d00e00;
+        }
+    }
+}
+
+div.errors {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: 200ms ease;
+    visibility: hidden;
+    width: 100%;
+    z-index: 1;
+    p {
+        color: #d00e00;
+        position: absolute;
+        width: 100%;
+        font-size: 12px;
+        margin: 0;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}

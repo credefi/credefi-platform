@@ -1,0 +1,94 @@
+mat-toolbar {
+    top: 0;
+    z-index: 5;
+    position: fixed;
+    min-height: 50px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+    background-color: white;
+
+    &.small.desktop {
+        width: calc(100% - 70px);
+        transform: translateX(70px);
+    }
+
+    &.mobile {
+        width: 100%;
+        &:not(.small) {
+            transform: translateX(200px);
+        }
+    }
+
+    &.desktop {
+        width: calc(100% - 200px);
+        transform: translateX(200px);
+    }
+
+    .mat-toolbar-row {
+        height: 50px;
+        justify-content: space-between;
+    }
+
+    button {
+        &.toggle {
+            padding: 5px;
+        }
+        &.notification {
+            opacity: 0.8;
+            margin-right: 20px;
+            lazy-image-component {
+                display: block;
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
+        &.user {
+            align-items: center;
+            color: gray;
+            opacity: 0.8;
+            &:hover {
+                opacity: 1;
+            }
+            span {
+                padding-right: 5px;
+            }
+            lazy-image-component {
+                padding: 5px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+div.menu {
+    right: 0;
+    top: 50px;
+    opacity: 0;
+    z-index: 11;
+    width: 200px;
+    display: flex;
+    position: fixed;
+    visibility: hidden;
+    transition: ease 200ms;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+    a,
+    button {
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+        text-align: left;
+        padding: 8px;
+        &:hover {
+            background-color: #edf1f2;
+        }
+    }
+    button.logout {
+        border-top: solid 1px rgba(0, 0, 0, 0.07);
+    }
+}

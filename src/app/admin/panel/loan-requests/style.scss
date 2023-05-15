@@ -1,0 +1,44 @@
+:host {
+    overflow: hidden;
+}
+
+div.table-list {
+    max-width: 1300px;
+    margin: 0px 30px;
+    table thead,
+    table tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    table {
+        min-width: 1300px;
+    }
+    table tbody {
+        display: block;
+        max-height: 65vh;
+        overflow-y: auto;
+    }
+}
+
+div.small {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    a {
+        color: #406bc3;
+        text-decoration: none;
+    }
+    span {
+        margin: 5px 0;
+    }
+    small {
+        font-size: 11px;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+}
+
+div.input {
+    margin: 0 0 15px 30px;
+}

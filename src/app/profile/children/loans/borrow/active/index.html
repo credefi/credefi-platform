@@ -1,0 +1,96 @@
+<div class="card-container" *ngFor="let item of list.data; trackBy: trackByFn">
+    <div class="item">
+        <div class="init">
+            <lazy-image-component src="./assets/calendar.svg" objectFit="contain" width="28px" height="28px">
+            </lazy-image-component>
+            <p>
+                Initiation date
+            </p>
+            <h3>
+                {{ item.createdAt | date:'dd/MM/yy' }}
+            </h3>
+        </div>
+        <div class="body">
+            <div class="info">
+                <p>
+                    Request Amount
+                </p>
+                <h3>
+                    {{ item.amount | number:'1.2-2' }} USDT
+                </h3>
+            </div>
+            <div class="info">
+                <p>
+                    Interest per year
+                </p>
+                <h3>
+                    --/-- %
+                </h3>
+            </div>
+            <div class="info">
+                <p>
+                    Outstanding balance
+                </p>
+                <h3>
+                    --/-- USD
+                </h3>
+            </div>
+            <div class="info">
+                <p>
+                    Payment schedule
+                </p>
+                <h3>
+                    Monthly
+                </h3>
+            </div>
+            <div class="info">
+                <p>
+                    Duration
+                </p>
+                <h3>
+                    {{ item.months }} months
+                </h3>
+            </div>
+            <div class="info green">
+                <p>
+                    Status
+                </p>
+                <h3 [ngSwitch]="item.status">
+                    <ng-container *ngSwitchCase="Statuses.rejected.key">
+                        <lazy-image-component src="./assets/alert.svg" objectFit="contain" width="22px" height="22px">
+                        </lazy-image-component>
+                        <span class="red">
+                            {{ translations[item.status] }}
+                        </span>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                        <lazy-image-component src="./assets/okay-green.svg" objectFit="contain" width="22px"
+                            height="22px">
+                        </lazy-image-component>
+                        <span>
+                            {{ translations[item.status] }}
+                        </span>
+                    </ng-container>
+                </h3>
+            </div>
+        </div>
+        <div class="payment">
+            <div class="balance">
+                <span class="title">
+                    Next Payment amount
+                </span>
+                <p>
+                    --/-- <span>USD</span>
+                </p>
+            </div>
+            <div class="balance">
+                <span class="title">
+                    Next payment date
+                </span>
+                <p>
+                    --/--/--
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

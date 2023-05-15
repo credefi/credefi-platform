@@ -1,0 +1,47 @@
+<div class="drawer" #container [class.closed]="!active" [class.mobile]="isMobile">
+    <div class="content small-scroll">
+        <ng-container *ngFor="let item of navigation; let last = last; trackBy: track">
+            <div *ngIf="!item.hidden || isActive">
+                <h5>
+                    {{ item.name }}
+                </h5>
+
+                <ng-container *ngFor="let child of item.children; trackBy: track" [ngSwitch]="child.type">
+
+                    <a *ngSwitchCase="buttonTypes.link.key" class="item flex" routerLinkActive="active" matRipple
+                        [routerLink]="child.link" [queryParamsHandling]="child.queryParamsHandling"
+                        [queryParams]="{skip: null, error: null, supplier: null, start: null, end: null, type: null}"
+                        (click)="checkMobile()" [class.disabled]="child.active"
+                        [routerLinkActiveOptions]="{ exact: true }">
+                        <lazy-image-component *ngIf="child.image" [src]="child.image" width="32px" height="32px">
+                        </lazy-image-component>
+                        <span>{{ child.name }}</span>
+                    </a>
+
+                    <a *ngSwitchCase="buttonTypes.blank.key" class="item flex" matRipple (click)="checkMobile()"
+                        [class.disabled]="child.active" [href]="child.link" target="_blank">
+                        <lazy-image-component *ngIf="child.image" [src]="child.image" width="32px" height="32px">
+                        </lazy-image-component>
+                        <span>{{ child.name }}</span>
+                    </a>
+
+                    <button class="image-button item flex" *ngSwitchCase="buttonTypes.button.key" matRipple
+                        (click)="handler(child)">
+                        <lazy-image-component *ngIf="child.image" [src]="child.image" width="32px" height="32px">
+                        </lazy-image-component>
+                        <span>{{ child.name }}</span>
+                    </button>
+
+                </ng-container>
+
+                <hr *ngIf="!last">
+            </div>
+
+        </ng-container>
+
+    </div>
+</div>
+
+<div class="fixed-container" [class.active]="active && isMobile">
+
+</div>

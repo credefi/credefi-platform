@@ -1,0 +1,202 @@
+<div class="small relative date" *ngIf="!production">
+    <span (click)="picker.open()">CHAIN DATE: {{currentDate | date:'dd/MM/yyyy'}}</span>
+    <mat-datepicker #picker></mat-datepicker>
+    <input style="padding:0;border-width:0px;border:none;height:0;visibility:hidden;" [matDatepicker]="picker"
+        [(ngModel)]="currentDate" (dateChange)="onDateChange()">
+</div>
+
+<div class="stake">
+
+    <div class="balances">
+
+        <div class="info">
+            <div class="balance">
+                <span class="title">
+                    {{ translations['available'] }}
+                </span>
+                <p>
+                    {{ available | number:'1.2-2' }} <span>CREDI</span>
+                </p>
+            </div>
+
+            <div class="balance">
+                <span class="title">
+                    {{ translations['countDown'] }}
+                </span>
+                <p>
+                    <ng-container *ngIf="timeValue > 0 else noTimer">
+                        <p>
+                            {{ dateTime }}
+                        </p>
+                    </ng-container>
+                    <ng-template #noTimer>
+                        <p>00:00:00</p>
+                    </ng-template>
+                </p>
+            </div>
+        </div>
+
+        <button class="image-button connect" mat-ripple
+            [class.error]="form.get('wallet')?.hasError('required') && isSubmitted" (click)="connect()">
+            <span *ngIf="address else addressTemplate" class="metamask">
+                <lazy-image-component src="./assets/metamask.svg" objectFit="contain" width="22px" height="22px">
+                </lazy-image-component>
+                <strong>{{ address }}</strong>
+            </span>
+            <ng-template #addressTemplate>
+                <span>
+                    {{ translations['connect'] }}
+                </span>
+            </ng-template>
+        </button>
+
+    </div>
+
+    <form class="actions" [formGroup]="form" (ngSubmit)="submit()" #formGroupDirective="ngForm">
+
+        <div class="actions">
+            <input-component type="number" controlName="amount" [placeholder]="translations['amount']"
+                [hint]="translations['amount']" [positive]="true" icon="/assets/stake-credi.svg"
+                [button]="translations['max']" (action)="setMaxBalance()">
+            </input-component>
+            <button class="image-button primary" mat-ripple [disabled]="disabled || network != stakingNetwork">
+                {{ translations['stake'] }}
+
+            </button>
+        </div>
+
+        <div class="error" *ngIf="error.length > 0">
+            {{ error }}
+        </div>
+
+        <div class="error" *ngIf="network != stakingNetwork">
+            {{ translations['alert-message'] }}
+        </div>
+
+    </form>
+
+</div>
+<virtual-scroller #scroll [items]="stakings" [parentScroll]="scroll.window">
+
+    <div class="card-container" *ngFor="let s of scroll.viewPortItems; trackBy: track('index')">
+        <div class="item">
+            <div class="init">
+                <lazy-image-component src="./assets/calendar.svg" objectFit="contain" width="28px" height="28px">
+                </lazy-image-component>
+                <p>
+                    {{ translations['date'] }}
+                </p>
+                <h3>
+                    {{ s.createdAt | date:'dd/MM/yy' }}
+                </h3>
+            </div>
+            <div class="body">
+                <div class="info">
+                    <p>
+                        {{ translations['amount'] }}
+                    </p>
+                    <h3>
+                        {{ s.amount | number:'1.4-4' }} CREDI
+                    </h3>
+                </div>
+                <div class="info">
+                    <p>
+                        {{ translations['rewards'] }}
+                    </p>
+                    <h3>
+                        <ng-container *ngIf="s.rewards.value > 0 else rewardsTemplate">
+                            {{ s.rewards.value | number:'1.4-4' }}
+                        </ng-container>
+                        <ng-template #rewardsTemplate>
+                            --/--
+                        </ng-template>
+                        CREDI
+                    </h3>
+                </div>
+                <div class="info">
+                    <p>
+                        {{ translations['interest'] }}
+                    </p>
+                    <h3>
+                        <ng-container *ngIf="s.apy > 0 else apyTemplate">
+                            {{ s.apy | number:'1.0-0' }}%
+                        </ng-container>
+                        <ng-template #apyTemplate>
+                            --/-- %
+                        </ng-template>
+                    </h3>
+                </div>
+                <div class="info">
+                    <p>
+                        {{ translations['duration'] }}
+                    </p>
+                    <h3>
+                        <ng-container *ngIf="s.period > 0 else periodTemplate">
+                            {{ s.period }} {{ s.period> 1 ? translations['days'] : translations['day'] }}
+                        </ng-container>
+                        <ng-template #periodTemplate>
+                            --/--
+                        </ng-template>
+                    </h3>
+                </div>
+                <div class="info">
+
+                    <ng-container *ngIf="s.claim else claimTemplate">
+                        <p>
+                            {{ translations['full-claim'] }}
+                        </p>
+                        <h3>
+                            {{ fullClaimDate | date:'dd/MM/yyyy' }}
+                        </h3>
+                    </ng-container>
+                    <ng-template #claimTemplate>
+                        <p>
+                            {{ translations['claim'] }}
+                        </p>
+                        <h3>
+                            {{ s.endDate | date:'dd/MM/yyyy' }}
+                        </h3>
+                    </ng-template>
+
+
+                </div>
+                <div class="info green">
+                    <p>
+                        {{ translations['status'] }}
+                    </p>
+                    <h3>
+                        <lazy-image-component src="./assets/okay-green.svg" objectFit="contain" width="22px"
+                            height="22px">
+                        </lazy-image-component>
+                        {{ s.statusName }}
+                    </h3>
+                </div>
+            </div>
+            <div class="payment">
+                <ng-container *ngIf="s.claim else nonClaimTemplate">
+                    <div class="balance">
+                        <p>
+                            {{ translations['claimable-amount'] }}
+                        </p>
+                        <h3>
+                            {{ s.claim.total - s.claim.paidAmount | number:'1.4-4' }} <span>CREDI</span>
+                        </h3>
+                    </div>
+                    <button class="balance button" matRipple (click)="claim(s)"
+                        [disabled]="s.claim.total == s.claim.paidAmount">
+                        {{ translations['claim-rewards'] }}
+                    </button>
+                </ng-container>
+                <ng-template #nonClaimTemplate>
+                    <button class="balance button" matRipple (click)="withdraw(s)">
+                        {{ translations['withdraw'] }}
+                    </button>
+                    <button class="balance button" matRipple (click)="requestClaim(s)">
+                        {{ translations['claim-rewards'] }}
+                    </button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+</virtual-scroller>

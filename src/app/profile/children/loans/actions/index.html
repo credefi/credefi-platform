@@ -1,0 +1,16 @@
+<div class="actions">
+    <a class="image-button" mat-ripple routerLink="/profile/loans/lent">
+        <lazy-image-component src="./assets/lent.svg" objectFit="contain" width="80px" height="80px">
+        </lazy-image-component>
+        <h3>
+            {{ translations['lent'] }}
+        </h3>
+    </a>
+    <a class="image-button" mat-ripple routerLink="/profile/loans/borrow">
+        <lazy-image-component src="./assets/borrow.svg" objectFit="contain" width="80px" height="80px">
+        </lazy-image-component>
+        <h3>
+            {{ translations['borrowed'] }}
+        </h3>
+    </a>
+</div>

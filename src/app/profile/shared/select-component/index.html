@@ -1,0 +1,22 @@
+<div class="relative" [class.invalid]="control?.invalid && isSubmited">
+    <span class="placeholder">
+        {{ placeholder }}
+    </span>
+    <button #mainButton class="image-button main" (click)="toggle()" [class.active]="active" type="button">
+        <lazy-image-component [src]="icon" width="22px" height="22px">
+        </lazy-image-component>
+        <span>
+            {{ selected ? selected.name : placeholder }}
+        </span>
+    </button>
+    <div class="buttons" #buttons>
+        <ng-content select="option-component">
+        </ng-content>
+    </div>
+
+    <div class="errors">
+        <p *ngFor="let error of control  | error">
+            {{error}}
+        </p>
+    </div>
+</div>

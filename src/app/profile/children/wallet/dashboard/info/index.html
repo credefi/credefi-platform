@@ -1,0 +1,51 @@
+<div class="card-container flex">
+    <div class="balance">
+        <span class="title">
+            CREDI {{ translations['balance'] }}
+        </span>
+        <p>
+            {{ balance | number:'1.6-6' }} <span>CREDI</span>
+        </p>
+    </div>
+    <div class="balance">
+        <span class="title">
+            USD {{ translations['balance'] }}
+        </span>
+        <p>
+            {{ usdtBalance | number:'1.2-2' }} <span>USD</span>
+        </p>
+    </div>
+</div>
+
+<div class="card-container">
+    <ng-container *ngIf="accounts.length > 0; else errorTemplate">
+        <div class="titles">
+            <h4>
+                {{ translations['name'] }}
+            </h4>
+            <h4>
+                {{ translations['address'] }}
+            </h4>
+            <h4>
+                {{ translations['actions'] }}
+            </h4>
+        </div>
+        <virtual-scroller #scroll [items]="accounts" [parentScroll]="scroll.window">
+            <wallet-component *ngFor="let wallet of scroll.viewPortItems; trackBy: trackById" [data]="wallet" >
+            </wallet-component>
+        </virtual-scroller>
+    </ng-container>
+    <ng-template #errorTemplate>
+        <error-component [text]="translations['error']">
+
+        </error-component>
+    </ng-template>
+    <div class="actions">
+        <a class="image-button primary" mat-ripple routerLink="/profile/wallet/actions/create">
+            {{ translations['new-wallet'] }}
+        </a>
+        <a class="image-button primary" mat-ripple routerLink="/profile/wallet/actions/import">
+            {{ translations['existing-wallet'] }}
+        </a>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+:host {
+    display: flex;
+    background: #ffffff;
+    border: 1px solid rgba(31, 60, 135, 0.1);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(189, 196, 211, 0.15);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    align-items: center;
+    lazy-image-component {
+        margin-right: 10px;
+    }
+}

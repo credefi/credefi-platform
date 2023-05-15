@@ -1,0 +1,28 @@
+<div class="action">
+    <h4>
+        {{ translations['title'] }}
+    </h4>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <input-component controlName="email" [placeholder]="translations['email']">
+        </input-component>
+
+        <a class="forgot-passwrd" target="_blank" href="{{site}}">
+            {{ translations['platform'] }}
+        </a>
+
+        <button type="submit" mat-ripple class="image-button">
+            {{ translations['submit'] }}
+        </button>
+    </form>
+    <div class="flex sign-up">
+        <p>
+            {{ translations['sign-in-text'] }}
+        </p>
+        <a routerLink="/authentication/login">
+            {{ translations['sign-in-link'] }}
+        </a>
+    </div>
+</div>
+<iframe [src]="api_url"></iframe>

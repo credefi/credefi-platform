@@ -1,0 +1,82 @@
+:host {
+    overflow: hidden;
+}
+
+section.checkbox {
+    margin: 12px 25px;
+}
+
+div.table-list {
+    max-width: 1300px;
+    margin: 0px 30px;
+    table thead,
+    table tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    table {
+        min-width: 1300px;
+        th.small {
+            font-size: 12px;
+        }
+    }
+    table tbody {
+        display: block;
+        max-height: 65vh;
+        overflow-y: auto;
+    }
+}
+
+div.small {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    > span {
+        margin: 5px;
+        &.flex {
+            justify-content: space-between;
+        }
+    }
+    small {
+        font-size: 11px;
+        word-wrap: break-word;
+        white-space: normal;
+        display: flex;
+        align-items: center;
+        span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+    }
+}
+
+button.date {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    input {
+        width: 100%;
+    }
+}
+
+button.send {
+    text-transform: uppercase;
+    border: solid 1px black;
+    padding: 5px;
+    margin: 0 0 15px 30px;
+    width: 100%;
+    max-width: 250px;
+}
+
+button.maturity {
+    text-align: left;
+    margin: 5px;
+    text-transform: uppercase;
+}
+
+div.input {
+    margin: 0 0 15px 30px;
+}
