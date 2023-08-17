@@ -1,0 +1,151 @@
+
+@media (max-width: 200px) {
+
+  li {
+    text-align: center;
+    display: contents;
+  }
+
+  li span {
+    vertical-align: middle;
+    display: contents;
+  }
+
+}
+
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: grid;
+  grid-template-rows: 1fr 101px;
+  background-color: #FCFDFD;
+  border: 1px;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.logo-wrapper {
+  border-bottom: 1px solid rgba(7, 7, 7, 0.1);
+}
+
+mat-icon.mat-icon-size-logo {
+  height: 100px;
+  width: 170px;
+  padding-left: 71px;
+  display: flex;
+  align-items: center;
+}
+
+
+mat-icon.mat-icon-size-logo-smaller {
+  height: 100px;
+  width: 63px;
+  padding-left: 71px;
+  display: flex;
+  align-items: center;
+}
+
+mat-icon.mat-icon-size-menu {
+  height: 22px;
+  width: 22px;
+}
+
+mat-icon.mat-icon-size-arrow {
+  height: 23px;
+  width: 23px;
+  padding-left: 14.4px;
+}
+
+mat-icon.mat-icon-size-slider {
+  height: 40px;
+  width: 40px;
+  /* padding-left: 183px; */
+  position: relative;
+  top: -36px;
+  display: flex;
+  align-items: center;
+}
+
+div ul {
+  padding-left: 43.5px;
+  list-style-type: none;
+
+}
+
+.span-item {
+  color: rgba(7, 7, 7, 0.4);
+  padding-left: 14.4px;
+  padding-bottom: 2px;
+
+}
+
+.span-item-nested {
+  color: rgba(7, 7, 7, 0.4);
+  padding-left: 36.4px;
+  padding-bottom: 20px;
+}
+
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(7, 7, 7, 0.1);
+}
+
+li {
+  text-align: center;
+  display: table;
+  padding: 10px 0 10px 0;
+  &.first{
+    padding: 0;
+  }
+
+}
+
+li span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+span.span-item {
+  padding-left: 16.5px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+li span mat-icon {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.logo {
+  border: none;
+  background-color: #FCFDFD;
+  margin-left: 50px;
+}
+
+.collapse-logo {
+  width: 20px;
+  border: none;
+  background-color: #FCFDFD;
+}
+
+.left-sidebar {
+  color: #11121C;
+  left: 0;
+  background-color: #FCFDFD;
+}
+
+.footer-sidebar {
+  height: 58px;
+  background-color: #FCFDFD;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 80px);
+}
+
+.remove-underline-link {
+  text-decoration: none;
+}

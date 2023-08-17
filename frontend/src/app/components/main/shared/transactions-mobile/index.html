@@ -1,0 +1,66 @@
+<div class="trans-wrapper">
+    <div class="trans-container">
+        <div class="top-header">
+            <span class="recent-transactions">Recent Transactions</span>
+         
+        </div>
+        <div class="table-head" [class.empty]="items().length == 0">
+            <span>Tx</span>
+            <span>Wallet</span>
+            <span>Status</span>
+            <span>To</span>
+            <span>Block</span>
+            <span>Action</span>
+        </div>
+        <div
+            class="table-body"
+            *ngFor="let tx of items(); trackBy: track('hash')"
+        >
+            <a
+                href="{{exporer}}/{{tx.hash}}"
+                target="_blank"
+            >
+                {{ tx.hash | address }}
+            </a>
+            <div class="wallet">
+                <mat-icon
+                    class="mat-icon-size-22-only"
+                    svgIcon="transactionsCircle"
+                ></mat-icon>
+                <span [copy]="tx.from">
+                    {{ tx.from | address }}
+                </span>
+            </div>
+            <span><button
+                    class="button-trans-confirm"
+                    mat-button
+                >
+                    Confirmed
+                </button>
+            </span>
+            <span [copy]="tx.to">{{ tx.to | address }}</span>
+            <span>{{ tx.blockNum | hextodec }}</span>
+            <span class="action"><span>Tx</span> <mat-icon
+                    class="header-icon arrow-up-right"
+                    svgIcon="arrowUpRight"
+                ></mat-icon></span>
+        </div>
+        <div
+            class="actions"
+            *ngIf="!wallet.address()"
+        >
+            <button
+                class="button-dash-300"
+                mat-button
+                (click)="connect()"
+            >
+                Connect wallet
+            </button>
+        </div>
+        <a
+        routerLink="/transactions"
+        class="button-dash-130"
+        mat-button
+    >View All</a>
+    </div>
+</div>

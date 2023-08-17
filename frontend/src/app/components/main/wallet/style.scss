@@ -1,0 +1,148 @@
+@media (min-width: 700px) {
+  .container {
+    display: flex;
+    gap: 32px;
+    width: 1120px;
+    background: #F6F5F8;
+    display: grid;
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+
+  .div-table {
+    background-color: #F6F5F8;
+    position: relative;
+  }
+
+  .banner-wrapper {
+    padding-top: 32px;
+  }
+
+  .lend {
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+  }
+
+  .portfolio-lending {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    margin-left: 60px;
+  }
+
+  .h2-general {
+    color: #11121C;
+  }
+
+  .button-lend-now {
+    color: #FCFDFD !important;
+    margin-left: auto;
+    margin-right: 12px;
+    padding: 25px 0;
+  }
+
+  .button-add-existing-wallet {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    font-family: 'Mulish';
+    height: 50px;
+    border-radius: 58px;
+    background-color: #FFF;
+    border-width: 0px;
+    color: #11121C;
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 700;
+    padding-left: 22px;
+    padding-right: 12px;
+
+    mat-icon {
+      margin-left: 8px;
+    }
+  }
+
+  mat-icon.buttonPlus {
+    margin-right: 0px;
+}
+.div-table-mobile,
+.banner-wrapper-mobile,
+.portfolio-lending-mobile
+  {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .banner-wrapper,
+  .portfolio-lending,
+  .div-table,
+  app-transactions
+  {
+    display: none;
+  }
+  .banner-wrapper-mobile{
+    padding-left: 24px;
+  }
+
+
+
+  
+  .portfolio-lending-mobile {
+    display: grid;
+    grid-template-rows: 50px 50px 50px;
+    width:312px;
+    margin-left: 24px;
+    margin-top: 32px;
+  }
+
+  .h3-general{
+    width: 312px;
+    color: var(--color-styles-light-version-black, #11121C);
+    font-family: Mulish;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 33.6px */
+  }
+
+
+  .button-lend-now {
+    color: #FCFDFD !important;
+    margin-left: auto;
+    margin-right: 12px;
+    padding: 25px 0;
+    height: 50px;
+    width: 312px;
+ 
+  }
+
+  .button-add-existing-wallet {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    font-family: 'Mulish';
+    height: 50px;
+    border-radius: 58px;
+    background-color: #FFF;
+    border-width: 0px;
+    color: #11121C;
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 700;
+    padding-left: 22px;
+    padding-right: 12px;
+    margin-top: 12px;
+    mat-icon {
+      margin-left: 8px;
+    }
+  }
+
+  .div-table-mobile{
+    margin-top: 36px;
+    margin-left: -180px;
+  }
+
+}

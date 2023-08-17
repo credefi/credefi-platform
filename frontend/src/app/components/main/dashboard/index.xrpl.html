@@ -1,0 +1,349 @@
+<div class="container">
+    <div class="h3-additional">
+        <h3 class="h3-mobile">Dashboard</h3>
+    </div>
+
+    <div class="container-dash">
+        <div class="box-dash">
+            <div class="contain-dash">
+                <div class="status">
+                    <div class="status-light green"></div><span>Active</span>
+                </div>
+                <h4>Autonomous earning</h4>
+                <div><span>20,402</span> investors already use this product</div>
+                <a href="/earn/autonomous-earning"
+                    class="button-dash top50"
+                    mat-button
+                >Invest</a>
+            </div>
+            <mat-icon
+                class="mat-icon-size-120"
+                svgIcon="Sphere_array"
+            ></mat-icon>
+        </div>
+        <div class="box-dash">
+            <div class="contain-dash">
+                <div class="status">
+                    <div class="status-light blue"></div><span>Coming soon</span>
+                </div>
+                <h4>Corporate bonds</h4>
+                <div><span>20,402</span> investors already use this product</div>
+                <button
+                    class="button-dash top50 disabled"
+                    mat-button
+                >Invest</button>
+            </div>
+            <mat-icon
+                class="mat-icon-size-170"
+                svgIcon="Glass_tower"
+            ></mat-icon>
+        </div>
+        <div class="box-dash">
+            <div class="contain-dash">
+                <div class="status">
+                    <div class="status-light blue"></div><span>Coming soon</span>
+                </div>
+                <h4>P2P lending</h4>
+                <div><span>20,402</span> investors already use this product</div>
+                <button
+                    class="button-dash top50 disabled"
+                    mat-button
+                >Invest</button>
+            </div>
+            <mat-icon
+                class="mat-icon-size-120"
+                svgIcon="Sphere_array"
+            ></mat-icon>
+        </div>
+    </div>
+
+
+
+    <app-banner
+        [title]="title"
+        [titleColor]="titleColor"
+        [description]="description"
+        [descriptionColor]="descriptionColor"
+        [image]="image"
+        [imgProps]="imgProps"
+        [linearGradient]="linearGradient"
+        [showCarosel]="showCarosel"
+    ></app-banner>
+
+    <div class="black-slider">
+        <mat-icon
+            class="mat-icon-slider-black"
+            svgIcon="sliderMobileBlack"
+        ></mat-icon>
+    </div>
+    
+    <app-banner-mobile class="mobile-banner"
+        [title]="title"
+        [titleColor]="titleColor"
+        [description]="description"
+        [descriptionColor]="descriptionColor"
+        [image]="imageMobile"
+        [imgProps]="imgPropsMobile"
+        [linearGradient]="linearGradient"
+        [showCarosel]="showCarosel"
+    ></app-banner-mobile>
+
+    <!-- <div class="container-stake-now">
+        <div class="stake-row">
+            <div class="box-stake-top">
+                <h4>Module X</h4>
+                <mat-icon
+                    class="mat-icon-size-module-x"
+                    svgIcon="twistedCube"
+                ></mat-icon>
+            </div>
+            <div class="box-stake-bottom">
+                <div class="stake-inner-wrapper">
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="moduleX1"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h3>20,050</h3><span class="separator"></span><span class="currency">USD</span>
+                            <span>Staked amount</span>
+                        </div>
+                    </div>
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="moduleX2"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h3>20,050</h3><span class="separator"></span><span class="currency">USD</span>
+                            <span>Staked amount</span>
+                        </div>
+                    </div>
+                    <button
+                        class="button-stake"
+                        mat-button
+                    >Stake now</button>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="stake-row">
+            <div class="box-stake-top">
+                <h4>LP Staking</h4>
+                <mat-icon
+                    class="mat-icon-size-glass-cube"
+                    svgIcon="glassCube"
+                ></mat-icon>
+            </div>
+            <div class="box-stake-bottom">
+                <div class="stake-inner-wrapper">
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="moduleX1"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h3>20,050</h3><span class="separator"></span><span class="currency">USD</span>
+                            <span>Staked amount</span>
+                        </div>
+                    </div>
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="moduleX2"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h3>20,050</h3><span class="separator"></span><span class="currency">USD</span>
+                            <span>Staked amount</span>
+                        </div>
+                    </div>
+                    <button
+                        class="button-stake"
+                        mat-button
+                    >Stake now</button>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="stake-row">
+            <div class="box-stake-top">
+                <h4>Crypto loans</h4>
+                <mat-icon
+                    class="mat-icon-size-hexagonal-sphere"
+                    svgIcon="hexagonalSphere"
+                ></mat-icon>
+            </div>
+            <div class="box-stake-bottom">
+                <div class="stake-inner-wrapper">
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="cryptoLoans1"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h3>20,050</h3><span class="separator"></span><span class="currency">USD</span>
+                            <span>Outstanding credit </span>
+                        </div>
+                    </div>
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="cryptoLoans2"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h3>20,050</h3><span class="separator"></span><span class="currency">USD</span>
+                            <span>Available credit line</span>
+                        </div>
+                    </div>
+                    <button
+                        class="button-dash"
+                        mat-button
+                    >Borrow</button>
+                    <button
+                        class="button-dash"
+                        mat-button
+                    >Repay</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container-stake-now-mobile">
+        <div class="stake-row">
+            <div class="box-stake-top">
+                <h4>Module X</h4>
+                <mat-icon
+                    class="mat-icon-size-module-x"
+                    svgIcon="moduleX2Mobile"
+                ></mat-icon>
+            </div>
+            <div class="box-stake-bottom">
+                <div class="stake-inner-wrapper">
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="moduleX1"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h4>24,050</h4><span class="separator"></span><span class="currency">CREDI</span>
+                            <span>Staked amount</span>
+                        </div>
+                    </div>
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="moduleX2"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h4>55,000</h4><span class="separator"></span><span class="currency">CREDI</span>
+                            <span>Staked amount</span>
+                        </div>
+                    </div>
+                    <button
+                        class="button-stake"
+                        mat-button
+                    >Stake now</button>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="stake-row">
+            <div class="box-stake-top">
+                <h4>LP Staking</h4>
+                <mat-icon
+                    class="mat-icon-size-glass-cube"
+                    svgIcon="glassCubeMobile"
+                ></mat-icon>
+            </div>
+            <div class="box-stake-bottom">
+                <div class="stake-inner-wrapper">
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="moduleX1"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h4>0</h4><span class="separator"></span><span class="currency">CREDI LP</span>
+                            <span>Staked amount</span>
+                        </div>
+                    </div>
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="moduleX2"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h4>15,000</h4><span class="separator"></span><span class="currency">CREDI LP</span>
+                            <span>Staked amount</span>
+                        </div>
+                    </div>
+                    <button
+                        class="button-stake"
+                        mat-button
+                    >Stake now</button>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="stake-row">
+            <div class="box-stake-top">
+                <h4>Crypto loans</h4>
+                <mat-icon
+                    class="mat-icon-size-hexagonal-sphere"
+                    svgIcon="hexagonalSphereMobile"
+                ></mat-icon>
+            </div>
+            <div class="box-stake-bottom">
+                <div class="stake-inner-wrapper">
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="cryptoLoans1"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h4>24,050</h4><span class="separator"></span><span class="currency">USD</span>
+                            <span>Outstanding credit </span>
+                        </div>
+                    </div>
+                    <div class="stake1">
+                        <mat-icon
+                            class="mat-icon-size-56-only"
+                            svgIcon="cryptoLoans2"
+                        ></mat-icon>
+                        <div class="stake1-inner">
+                            <h4>55,050</h4><span class="separator"></span><span class="currency">USD</span>
+                            <span>Available credit line</span>
+                        </div>
+                    </div>
+                    <button
+                        class="button-dash"
+                        mat-button
+                    >Borrow</button>
+                    <button
+                        class="button-dash"
+                        mat-button
+                    >Repay</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-wrapper">
+        <div class="income-chart">
+            <app-income-chart></app-income-chart>
+        </div>
+    </div>
+
+    <div class="trans-wrapper">
+        <app-transactions></app-transactions>
+    </div>
+
+</div>

@@ -1,0 +1,123 @@
+.steaking-type {
+    display: grid;
+    grid-template-columns: 226px;
+    margin-left: 60px;
+}   
+
+.title-img {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: #F3F4FA;
+    border-radius: 20px;
+    width: 216px;
+    height: 150px;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    z-index: 100;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.steaking-body {
+    width: 226px;
+    height: 439px;
+    background-color: #FCFDFD;
+    border-radius: 20px;
+    grid-column-start: 1;
+    grid-row-start: 1;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.open {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 226px;
+    width: 194px;
+    height: 60px
+}
+
+.button-open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    width: 60px;
+    height: 28px;
+    background-color: rgba(79, 166, 119, 0.10);
+    border-radius: 100px;
+    border: 1px solid #4FA677;
+    color: rgba(79, 166, 119, 1);
+}
+
+.body {
+    height: 300px;
+    height: 284px;
+    margin: 0 auto;
+}
+
+mat-icon.mat-icon-size-logo {
+    height: 100px;
+    width: 88.42px;
+}
+
+mat-icon.mat-icon-size-coinsStacked {
+    height: 42px;
+    width: 42px;
+}
+
+h6 {
+    font-size: 16px;
+    
+    font-weight: 700;
+    line-height: 140%;
+
+    color: #11121C;
+}
+
+.one {
+    display: grid;
+    grid-template-columns: 42px 135px;
+    column-gap: 7px;
+    row-gap: 2px;
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    
+    line-height: 140%;
+}
+
+.one:last-of-type {
+    margin-bottom: 16px;
+}
+
+.one span {
+    color: rgba(7, 7, 7, 0.40);
+}
+
+.one div {
+    font-weight: 700;
+    color: #11121C;
+}
+.large {
+    grid-row-end: span 2;
+}
+
+.button-stake-now {
+    display: flex;
+    width: 194px;
+    height: 50px;
+    padding: 14px 56px 14px 54px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #5C68FF;
+    border: none;
+}
+
+.button-stake-now h6 {
+    color: #FCFDFD;
+}

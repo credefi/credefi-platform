@@ -1,0 +1,21 @@
+.button-login{
+    margin-top: 0px !important;
+  }
+
+@media (min-width: 700px) {
+
+    mat-icon.mat-icon-logo-mobile {
+      display: none;
+    }
+    .additional-paragrah {
+        padding-left: 0rem;
+    }
+  }
+
+  @media (max-width: 700px) {
+
+    mat-icon.mat-icon-padding {
+        padding-left:0.1rem !important;
+      }
+    
+  }

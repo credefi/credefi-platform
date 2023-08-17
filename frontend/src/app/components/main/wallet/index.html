@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="banner-wrapper">
+        <app-banner-wallet
+            [description]="description"
+            [image]="image"
+            [color]="color"
+        ></app-banner-wallet>
+    </div>
+
+
+    <div class="banner-wrapper-mobile">
+
+        <app-banner-wallet-mobile
+        [descriptionMobile]="descriptionMobile"
+        [imageMobile]="imageMobile"
+        [colorMobile]="colorMobile"></app-banner-wallet-mobile>
+
+    </div>
+
+    <div class="portfolio-lending">
+        <h2 class="h2-general">My wallet’s</h2>
+        <button
+            class="button-lend-now"
+            mat-button
+            (click)="onCreateWallet()"
+        >
+            Create wallet
+        </button>
+        <!-- <button
+            class="button-add-existing-wallet"
+            mat-button
+        >
+            <span class="btn-text">Add an existing wallet</span>
+            <mat-icon
+                class="mat-icon-size-40 buttonPlus"
+                svgIcon="buttonPlus"
+            ></mat-icon>
+        </button> -->
+
+    </div>
+
+    <div class="portfolio-lending-mobile">
+        <h3 class="h3-general">My wallet’s</h3>
+        <button
+            class="button-lend-now"
+            mat-button
+            (click)="onCreateWallet()"
+        >
+            Create wallet
+        </button>
+
+            <button
+            class="button-add-existing-wallet"
+            mat-button
+                >
+            <span class="btn-text">Add an existing wallet</span>
+            <mat-icon
+                class="mat-icon-size-40 buttonPlus"
+                svgIcon="buttonPlus"
+            ></mat-icon>
+        </button>
+
+    </div>
+
+    <div>
+        <div class="div-table">
+
+            <div class="app-porfolio-wallet">
+                <app-portfolio-wallet
+                    [transactions]="appTransactions"
+                    [walletLogo]="walletLogo"
+                    [walletTitle]="walletTitle"
+                >
+                </app-portfolio-wallet>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div>
+        <div class="div-table-mobile">
+
+            <div class="app-porfolio-wallet">
+                <app-portfolio-wallet-mobile
+                    [transactions]="appTransactions"
+                    [walletLogo]="walletLogo"
+                    [walletTitle]="walletTitle"
+                >
+                </app-portfolio-wallet-mobile>
+            </div>
+
+        </div>
+    </div>
+
+    <app-transactions #appTransactions></app-transactions>
+
+</div>

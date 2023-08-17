@@ -1,0 +1,33 @@
+<div class="small-scroll">
+    <h3>
+        Select a wallet
+        <button
+            mat-icon-button
+            (click)="ref.close()"
+        >
+            <mat-icon>close</mat-icon>
+        </button>
+    </h3>
+    <button
+        (click)="connectMetamask()"
+        mat-ripple
+        class="wallet"
+    >
+        <mat-icon svgIcon="MetaMask_Fox"></mat-icon>
+        <div id="whitelist-inner">
+            <span>Metamask</span>
+        </div>
+    </button>
+    <button
+        *ngFor="let item of data; let i = index; trackBy: track('_id')"
+        (click)="connect(i)"
+        mat-ripple
+        class="wallet"
+    >
+        <mat-icon svgIcon="wallet"></mat-icon>
+        <div class="inner">
+            <span>{{ item.name }}</span>
+            <span class="address">0x{{ item.address }}</span>
+        </div>
+    </button>
+</div>

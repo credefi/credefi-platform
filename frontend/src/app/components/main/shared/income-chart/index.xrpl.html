@@ -1,0 +1,129 @@
+<div class="row income">
+    <div class="col-lg-6">
+        <div class="btn-wrapper">
+            <h4 class="h4-chart">Income chart</h4>
+            <button class="button-monthly"
+                    (click)="changeBarData()"
+                    mat-button>
+                <span>Monthly</span> <mat-icon class="mat-icon-size-arrow"
+                          svgIcon="arrow"></mat-icon>
+            </button>
+        </div>
+        <canvas #barChar id="barchart"></canvas>
+    </div>
+    <div class="chart-buttons">
+        <button class="button-chart-2"
+                (click)="changeBarData()">
+            Autonomous earning
+        </button>
+        <button class="button-chart-1"
+                (click)="changeBarData()">
+            Portfolio lend
+        </button>
+
+        <button class="button-chart-4"
+                (click)="changeBarData()">
+            Corporate bonds
+        </button>
+
+        <button class="button-chart-3"
+                (click)="changeBarData()">
+            P2P lending
+        </button>
+    </div>
+
+    <div class="chart-table first-row">
+        <div class="first-column">
+            <mat-icon class="mat-icon-size-50-only"
+                      svgIcon="transactionsCircle"></mat-icon>
+            <div class="cell">
+                <div>Product</div>
+                <span>Autonomous earning</span>
+            </div>
+            <div class="cell">
+                <div>12.15% USDC</div>
+                <span>APY</span>
+            </div>
+            <div class="cell">
+                <div>22 Sept. 2023</div>
+                <span>Next payment</span>
+            </div>
+            <div class="cell">
+                <div>23 June 2025</div>
+                <span>Until the end</span>
+            </div>
+            <div class="table-buttons">
+                <a href="/earn/autonomous-earning" class="button-chart-6">
+                    Detail
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="chart-table">
+        <div class="first-column">
+            <mat-icon class="mat-icon-size-50-only"
+                      svgIcon="chartTableG"></mat-icon>
+            <div class="cell">
+                <div>Name of bond</div>
+                <span>1000$ (10 pieces)</span>
+            </div>
+            <div class="cell">
+                <div>12.15% USDC</div>
+                <span>APY</span>
+            </div>
+            <div class="cell">
+                <div>22 July 2023</div>
+                <span>Next payment</span>
+            </div>
+            <div class="cell">
+                <div>23 June 2025</div>
+                <span>Until the end</span>
+            </div>
+            <div class="table-buttons">
+                <button class="button-chart-6">
+                    Detail
+                </button>
+                <mat-icon class="mat-icon-size-50-only"
+                          svgIcon="chartTableArrowDown"></mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-table">
+        <div class="first-column">
+            <mat-icon class="mat-icon-size-50-only"
+                      svgIcon="chartTableG"></mat-icon>
+            <div class="cell">
+                <div>Name of bond</div>
+                <span>1000$ (10 pieces)</span>
+            </div>
+            <div class="cell">
+                <div>12.15% USDC</div>
+                <span>APY</span>
+            </div>
+            <div class="cell">
+                <div>22 July 2023</div>
+                <span>Next payment</span>
+            </div>
+            <div class="cell">
+                <div>23 June 2025</div>
+                <span>Until the end</span>
+            </div>
+            <div class="table-buttons">
+                <button class="button-chart-6">
+                    Detail
+                </button>
+                <mat-icon class="mat-icon-size-50-only"
+                          svgIcon="chartTableArrowDown"></mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-chart-5">
+        <button class="button-chart-5"
+                (click)="changeBarData()">
+            See more
+        </button>
+    </div> -->
+</div>

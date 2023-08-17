@@ -1,0 +1,75 @@
+<div class="wrapper">
+    <div class="background-first-column">
+
+    </div>
+    <div class="app-sidebar">
+        <app-sidebar [height]="height"> </app-sidebar>
+    </div>
+    <div class="app-header">
+        <app-header [currentPage]="currentPage"></app-header>
+    </div>
+    <div class="container">
+        <div class="banner-wrapper">
+            <app-banner
+                [title]="title"
+                [titleColor]="titleColor"
+                [description]="description"
+                [descriptionColor]="descriptionColor"
+                [image]="image"
+                [imgProps]="imgProps"
+                [linearGradient]="linearGradient"
+            ></app-banner>
+        </div>
+
+
+        <div class="heading">
+            <div>
+                <a
+                    class="remove-underline-link"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    routerLink="/earn/bonds"
+                >
+                    <button
+                        class="button-filter-catalogue"
+                        mat-button
+                    >Bonds catalogue</button>
+                </a>
+                <a
+                    class="remove-underline-link"
+                    routerLinkActive="active"
+                    routerLink="/earn/bonds02"
+                >
+                    <button
+                        class="button-filter-project"
+                        mat-button
+                    >My bonds</button>
+                </a>
+            </div>
+            <button
+                class="button-filter"
+                mat-button
+            >
+                <span class="h-16-style-bold">Filter</span> <mat-icon
+                    class="mat-icon-button-filter"
+                    svgIcon="buttonFilter"
+                ></mat-icon>
+            </button>
+        </div>
+
+
+        <app-bonds01-table></app-bonds01-table>
+
+
+        <div id="dashboard-footer">
+            <footer>
+                <span>@2023 Credefi</span>
+                <span class="fl-right">
+                    <span>Powered by &nbsp;<u>Experian</u></span>
+                    <span>All rights reserved</span>
+                </span>
+            </footer>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="banner-wrapper">
+        <app-banner
+            [title]="title"
+            [titleColor]="titleColor"
+            [description]="description"
+            [descriptionColor]="descriptionColor"
+            [image]="image"
+            [imgProps]="imgProps"
+            [linearGradient]="linearGradient"
+        ></app-banner>
+    </div>
+
+    <div class="portfolio-lending">
+        <h2 class="h2-general">My loans</h2>
+        <button
+            class="button-lend-now"
+            mat-button
+        >Request Loan</button>
+    </div>
+
+    <div>
+        <div class="div-table">
+            <div class="app-porfolio">
+                <app-portfolio-borrow
+                    (heightEvent)="getHeight($event)"
+                    [portfolioImage]="portfolioImage"
+                    [portfolioName]="portfolioName"
+                ></app-portfolio-borrow>
+                <app-portfolio-borrow
+                    [portfolioImage]="portfolioImage"
+                    [portfolioName]="portfolioName"
+                ></app-portfolio-borrow>
+                <app-portfolio-borrow
+                    [portfolioImage]="portfolioImage"
+                    [portfolioName]="portfolioName"
+                ></app-portfolio-borrow>
+                <app-portfolio-borrow
+                    [portfolioImage]="portfolioImage"
+                    [portfolioName]="portfolioName"
+                ></app-portfolio-borrow>
+                <app-portfolio-borrow
+                    [portfolioImage]="portfolioImage"
+                    [portfolioName]="portfolioName"
+                ></app-portfolio-borrow>
+                <app-portfolio-borrow
+                    [portfolioImage]="portfolioImage"
+                    [portfolioName]="portfolioName"
+                ></app-portfolio-borrow>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

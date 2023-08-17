@@ -1,0 +1,31 @@
+ .div-table {
+   background-color: #F6F5F8;
+   position: relative;
+   /* padding-top: 5rem;
+    padding-left: 60px; */
+
+ }
+
+ .banner-wrapper {
+   padding-top: 32px;
+ }
+
+ .portfolio-lending {
+   display: flex;
+   justify-content: space-between;
+   width: 1000px;
+   margin-left: 60px;
+   margin-top: 32px;
+   margin-bottom: 32px;
+ }
+
+ .app-type-of-steaking {
+   display: grid;
+   grid-template-columns: 226px 226px 226px 226px;
+   column-gap: 32px;
+   margin-top: 32px;
+ }
+
+ .app-portfolio-steaking {
+   margin-top: 32px;
+ }

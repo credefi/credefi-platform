@@ -1,0 +1,106 @@
+<div class="header">
+    Create wallet
+    <button
+        mat-icon-button
+        (click)="ref.close()"
+    >
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+>
+    <mat-form-field appearance="fill">
+        <mat-icon
+            matPrefix
+            class="mat-icon-size-50"
+            svgIcon="blankCircle"
+        >
+            <mat-icon
+                class="mat-icon-email"
+                svgIcon="email"
+            >
+            </mat-icon>
+        </mat-icon>
+        <input
+            matInput
+            autocomplete
+            type="text"
+            placeholder="Wallet name"
+            formControlName="name"
+        />
+        <mat-error *ngFor="let error of form.get('name') | error | slice:0:1">
+            {{ error }}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-icon
+            matPrefix
+            class="mat-icon-size-50"
+            svgIcon="blankCircle"
+        >
+            <mat-icon
+                class="mat-icon-password"
+                svgIcon="password"
+            >
+            </mat-icon>
+        </mat-icon>
+        <mat-icon
+            matSuffix
+            class="mat-icon-size-22"
+            svgIcon="hide"
+        >
+        </mat-icon>
+        <input
+            matInput
+            autocomplete
+            type="password"
+            placeholder="Wallet password"
+            formControlName="password"
+        >
+        <mat-error *ngFor="let error of form.get('password') | error | slice:0:1">
+            {{ error }}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-icon
+            matPrefix
+            class="mat-icon-size-50"
+            svgIcon="blankCircle"
+        >
+            <mat-icon
+                class="mat-icon-password"
+                svgIcon="password"
+            >
+            </mat-icon>
+        </mat-icon>
+        <mat-icon
+            matSuffix
+            class="mat-icon-size-22"
+            svgIcon="hide"
+        >
+        </mat-icon>
+        <input
+            matInput
+            autocomplete
+            type="password"
+            placeholder="Confirm wallet password"
+            formControlName="passwordConfirm"
+        >
+        <mat-error *ngFor="let error of form.get('passwordConfirm') | error | slice:0:1">
+            {{ error }}
+        </mat-error>
+    </mat-form-field>
+
+    <button
+        class="button-login"
+        mat-button
+        [disabled]="isSubmit"
+    >
+        Create
+    </button>
+</form>

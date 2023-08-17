@@ -1,0 +1,414 @@
+<div class="container">
+    <h2 class="h2-style">Autonomous earning</h2>
+    <div class="wrapper-dash">
+        <div class="container-dash">
+            <div class="box-dash">
+                <mat-icon
+                    class="mat-icon-size-48-only"
+                    svgIcon="wallet50"
+                ></mat-icon>
+                <div class="box-dash-inner">
+                    <div class="box-usd">
+                        <h3>{{ tvl() | number:'1.2-2' }}</h3> <span class="span-line">/</span> <span
+                            class="span-currency"
+                        >USD</span>
+                    </div>
+                    <p class="p-style">Funds provided</p>
+                </div>
+            </div>
+
+            <div class="box-dash">
+                <mat-icon
+                    class="mat-icon-size-48-only"
+                    svgIcon="coins50"
+                ></mat-icon>
+                <div class="box-dash-inner">
+                    <div class="box-usd">
+                        <h3>{{ tvl() | number:'1.2-2' }}</h3> <span class="span-line">/</span> <span
+                            class="span-currency"
+                        >USD</span>
+                    </div>
+                    <p class="p-style">Loans outstanding</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-dash">
+            <div class="box-dash">
+                <mat-icon
+                    class="mat-icon-size-48-only"
+                    svgIcon="percent50"
+                ></mat-icon>
+                <div class="box-dash-inner">
+                    <h3>100%</h3>
+                    <p class="p-style">Utilization rate</p>
+                </div>
+            </div>
+
+
+            <div class="box-dash">
+                <mat-icon
+                    class="mat-icon-size-48-only"
+                    svgIcon="percent50"
+                ></mat-icon>
+                <div class="box-dash-inner">
+                    <h3>{{ apy() | number:'1.2-2' }}%</h3>
+                    <p class="p-style">est. APY</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button 
+        class="button-invest-now mobile" 
+        routerLink="/earn/invest-now-mobile" 
+        mat-button
+    >
+        Invest now
+    </button>
+    <div class="invest"  *ngIf="active() == false">
+        <div class="wrap">
+            <h3 class="h3-style">Invest now</h3>
+            <form
+                class="invest-form"
+                [formGroup]="form"
+                (ngSubmit)="onSubmit()"
+            >
+                <div class="">
+                    <mat-form-field appearance="fill"
+                    class="credi">
+                        <mat-icon
+                            matPrefix
+                            class="mat-icon-size-50"
+                            svgIcon="blankCircle"
+                        >
+                            <mat-icon
+                                class="mat-icon-email"
+                                svgIcon="userInvest"
+                            ></mat-icon>
+                        </mat-icon>
+                        <input
+                            matInput
+                            placeholder="Full name"
+                        />
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field
+                        appearance="fill"
+                        class="credi"
+                        subscriptSizing="dynamic"
+                    >
+                        <mat-icon
+                            matPrefix
+                            class="mat-icon-size-50"
+                            svgIcon="blankCircle"
+                        >
+                            <mat-icon
+                                class="mat-icon-email"
+                                svgIcon="potInvest"
+                            ></mat-icon>
+                        </mat-icon>
+                        <input
+                            matInput
+                            placeholder="Enter amount"
+                            formControlName="amount"
+                        />
+                    </mat-form-field>
+                    <div class="h-12-style available">
+                        Available {{balance()}} USDT
+                    </div>
+                    <div class="dropDown">
+                        <mat-select
+                            disableOptionCentering
+                            placeholder="Select period"
+                            panelClass="myPanelClass"
+                            class="mySelectClass"
+                            formControlName="period"
+                            class="credi"
+                        >
+                            <mat-option
+                                *ngFor="let item of periods()"
+                                [value]="item.index"
+                            >{{item.period}} days</mat-option>
+                        </mat-select>
+                        <mat-icon
+                            matPrefix
+                            class="mat-icon-size-50-only blankCircle"
+                            svgIcon="blankCircle"
+                        >
+                            <mat-icon
+                                class="mat-icon-email mat-icon-calendar"
+                                svgIcon="calendarInvest"
+                            ></mat-icon>
+                        </mat-icon>
+                    </div>
+                    <div class="h-12-style available">
+                        APY {{amount()}}%
+                    </div>
+                    <button
+                        class="button-invest"
+                        [disabled]="load()"
+                        mat-button
+                    >
+                        {{ load() ? 'Loading...' : 'Invest' }}
+                    </button>
+                    <div class="consent">
+                        By entering my name and clicking "Supply" below, I hereby agree and acknowledge that (i) I
+                        am electronically signing and becoming a party to the Loan Agreement for this pool, and (ii)
+                        my name and transaction information may be shared with the borrower
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="awards"  *ngIf="active() == true">
+        <div class="wrap">
+            <h3 class="h3-style">Available to withdraw</h3>
+            <span class="amount">$0.00</span>
+            <span class="currency"> / USDT</span>
+            <form
+                class="invest-form"
+                [formGroup]="form"
+                (ngSubmit)="onSubmit()"
+            >
+                <div class="">
+                    <mat-form-field appearance="fill"  class="credi">
+                        <mat-icon
+                            matPrefix
+                            class="mat-icon-size-50"
+                            svgIcon="blankCircle"
+                        >
+                            <mat-icon
+                                class="mat-icon-email"
+                                svgIcon="stakedInvest"
+                            ></mat-icon>
+                        </mat-icon>
+                        <input
+                            matInput
+                            placeholder="Amount"
+                        />
+                    </mat-form-field>
+
+                    <button
+                        class="button-invest"
+                        [disabled]="load()"
+                        mat-button
+                    >
+                    Withdraw
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="rewards"  *ngIf="active() == true">
+        <div class="wrap">
+            <h3 class="h3-style">Available rewards</h3>
+            <span class="amount">$0.00</span>
+            <span class="currency"> / Credi</span>
+            <form
+                class="invest-form"
+                [formGroup]="form"
+                (ngSubmit)="onSubmit()"
+            >
+                <div class="">
+                    <mat-form-field appearance="fill"  class="credi">
+                        <mat-icon
+                            matPrefix
+                            class="mat-icon-size-50"
+                            svgIcon="blankCircle"
+                        >
+                            <mat-icon
+                                class="mat-icon-email"
+                                svgIcon="stakedInvest"
+                            ></mat-icon>
+                        </mat-icon>
+                        <input
+                            matInput
+                            placeholder="Amount"
+                        />
+                    </mat-form-field>
+
+                    <button
+                        class="button-invest"
+                        [disabled]="load()"
+                        mat-button
+                    >
+                    Get it
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="remaining" *ngIf="active() == true">
+        <h3 class="h3-style">Remaining position outstanding</h3>
+        <span class="amount">${{total()+totalDays()*earn()/360}}</span>
+        <span class="currency"> / Credi</span>
+        <div class="rcontent">
+            <p>Principal <span>${{total() | number:'1.2-2' }}</span></p>
+            <p>Interest (24 month) <span>${{2*earn()}}</span></p>
+            <p>Total <span>${{total()+totalDays()*earn()/360}}</span></p>
+        </div>
+    </div>
+    <!-- slider -->
+    <div class="outer-chart-wrapper">
+        <h3 class="h3-general">Utilization rate</h3>
+        <div class="progress-bar">
+            <div class="progress-fill" [ngStyle]="{'width.%': progress}"></div>
+        </div>
+        <div class="chart-supplied">
+            <div class="new-line">
+                <p class="p-styled">Ultilized:</p> <span class="span-styled supplied">${{tvl() | number:'1.2-2'}}</span>
+            </div>
+            <div class="new-line">
+                <p class="p-styled goal">Supplied:</p> <span class="span-styled">${{tvl() | number:'1.2-2'}}</span>
+            </div>
+        </div>
+        <button
+            class="button-yield chart-control mobile"
+            mat-button
+            (click)='showTVL()' 
+            [class.active]="buttonActive == 1"
+        >TVL $</button>
+        <button
+            class="button-price mobile chart-control"
+            mat-button
+            (click)='showAPY()'
+            [class.active]="buttonActive == 2" 
+        >Avg. APY %</button>
+        <button
+            class="button-balance mobile chart-control"
+            mat-button
+            (click)='showURate()'
+            [class.active]="buttonActive == 3" 
+        >Utl. Rate %</button>
+
+        <div class="chart-wrapper">
+            <div class="income-chart">
+                <canvas #barchart id="barchart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="banner-autonomous-earning" *ngIf="active() == false">
+        <app-banner-autonomous-earning></app-banner-autonomous-earning>
+    </div>
+
+    <div class="below-chart-wrapper">
+        <div class="below-chart-wrapper-inner">
+            <button
+                class="button-overview"
+                mat-button
+                (click)='loadDeal()'
+                [class.active]="infoActive == 1" 
+            >Bond overview
+            <mat-icon
+                class="mat-icon-size-50-only mobile22"
+                svgIcon="bondArrowDown"
+            ></mat-icon></button>
+            <button
+                class="button-deal-overview"
+                mat-button
+                (click)='loadParams()'
+                [class.active]="infoActive == 2" 
+            >Deal overview</button>
+            <button
+                class="button-activity"
+                mat-button
+                (click)='loadRecent()'
+                [class.active]="infoActive == 3" 
+            >Recent activity</button>
+            <div  *ngIf="info == 1">
+                <div class="div-padding div-flex-row">
+                    <mat-icon
+                        class="mat-icon-size-50-only"
+                        svgIcon="credefiLogo"
+                    ></mat-icon>
+                    <h4 class="h4-padding">Autonomous earning
+                    </h4>
+                </div>
+                <p class="p-ae">
+                    Autonomous Earning is an innovative financial product for cryptocurrency investors seeking stable growth. It harnesses stablecoins 
+                    for real-world economy use, mainly fueling SMEs within the EU. The product is designed to have no correlation to crypto market volatility, 
+                    providing a predictable ROI, backed by a diverse portfolio of EU-operated loans. Every project undergoes rigorous risk-assessment validated by 
+                    global leader Experian. By integrating Real-World Assets (RWA) financing on-chain, Autonomous Earning merges traditional and crypto finance, 
+                    offering a secure and growth-optimized investment platform.</p>
+            </div>
+            <div  *ngIf="info == 2">
+                <div class="deal-overview">
+                    <p>Interest rate <span>12.00%</span></p>
+                    <p>Payment frequency <span>90 days</span></p>
+                    <p>Default rate <span>0.00%</span></p>
+                    <p>Opening date <span>10.08.2023</span></p>
+                    <p>Contract address <span>0xda4087f7ab6075fe4599871cd7f464859923a0dd</span></p>
+                </div>
+            </div>
+            <div  *ngIf="info == 3">
+                <div class="earntranssactions">
+                    <h3>Recent activity</h3>
+                    <div class="table-head" [class.empty]="recenttxs().length == 0">
+                        <span>Tx</span>
+                        <span>Wallet</span>
+                        <span>Status</span>
+                        <span>Block</span>
+                        <span>Action</span>
+                    </div>
+                    <div
+                    class="table-body"
+                    *ngFor="let tx of recenttxs(); trackBy: track('hash')"
+                    >
+                        <a
+                            href="{{exporer}}/{{tx.hash}}"
+                            target="_blank"
+                        >
+                            {{ tx.hash | address }}
+                        </a>
+                        <div class="wallet">
+                            <mat-icon
+                                class="mat-icon-size-22-only"
+                                svgIcon="transactionsCircle"
+                            ></mat-icon>
+                            <span [copy]="tx.from">
+                                {{ tx.from | address }}
+                            </span>
+                        </div>
+                        <span><button
+                                class="button-trans-confirm"
+                                mat-button
+                            >
+                                Lend
+                            </button>
+                        </span>
+                        <span>{{ tx.blockNum | hextodec }}</span>
+                        <span class="action"><span>Tx</span> <mat-icon
+                                class="header-icon arrow-up-right"
+                                svgIcon="arrowUpRight"
+                            ></mat-icon></span>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <div class="highlights-wrapper">
+        <div class="highlights-wrapper-inner">
+            <h4 class="h4-general">Highlights</h4>
+            <ul class="ul-highlights">
+                <li>Offers a stable investment platform with predictable returns, mitigating typical crypto market fluctuations. </li>
+                <li>Ensures investment security, backed by an EU-managed loan portfolio with each project undergoing robust risk-assessment validated by Experian.</li>
+                <li>Empowers growth in EU-based SMEs through the efficient deployment of stablecoins.
+                    Offers a stable investment platform with predictable returns, mitigating typical crypto market fluctuations.</li>
+                <li>Uniquely combines the realms of traditional and crypto finance by incorporating Real-World Assets (RWA) financing on-chain.</li>
+            </ul>
+            <button 
+                class="button-invest-now mobile highlights"
+                routerLink="/earn/invest-now-mobile"
+                mat-button
+            >
+                Invest now
+            </button>
+        </div>
+    </div>
+
+</div>

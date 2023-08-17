@@ -1,0 +1,136 @@
+.wallet-wrapper {
+    width: 1000px;
+    border-radius: 20px;
+    background-color: #FFF;
+    margin: 0 auto;
+    padding-bottom: 32px;
+}
+
+.wallet-logo {
+    display: grid;
+    grid-template-columns: 56px 107px;
+    column-gap: 24px;
+}
+
+.wallet-head {
+    padding-left: 32px;
+    padding-top: 33px;
+    padding-right: 32px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.large {
+    grid-row-end: span 2;
+}
+
+.copy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    line-height: 140%;
+    color: rgba(7, 7, 7, 0.40);
+}
+
+h3 {
+    font-size: 24px;
+
+    font-weight: 700;
+    line-height: 140%;
+    margin: 0;
+    padding: 0;
+
+}
+
+.button-key {
+    height: 48px;
+    width: 94px;
+    border-radius: 58px;
+    background-color: #F3F4FA;
+    border-width: 0px;
+    color: #11121C;
+
+    color: #11121C;
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400;
+    margin-left: 8px;
+}
+
+.button-deposit {
+    height: 48px;
+    width: 120px;
+    border-radius: 58px;
+    background-color: #F3F4FA;
+    border-width: 0px;
+    color: #11121C;
+
+    color: #11121C;
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400;
+    margin-left: 8px;
+}
+
+.button-withdraw {
+    height: 48px;
+    width: 120px;
+    border-radius: 58px;
+    background-color: #F3F4FA;
+    border-width: 0px;
+    color: #11121C;
+
+    color: #11121C;
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400;
+    margin-left: auto;
+}
+
+.wallet-body {
+    padding-left: 20px;
+    /* width: 304px; */
+    height: 90px;
+    border-radius: 20px;
+    background-color: #F3F4FA;
+    margin-top: 12px;
+    /* margin-left: 32px; */
+}
+
+.coin {
+    display: grid;
+    grid-template-columns: 50px 45px;
+    column-gap: 12px;
+    align-items: center;
+}
+
+.align {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.values {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.values div {
+    text-align: right;
+}
+
+.wallet-grid {
+    display: grid;
+    grid-template-columns: 304px 304px 304px;
+    gap: 12px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 934px;
+}

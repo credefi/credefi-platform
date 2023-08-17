@@ -1,0 +1,105 @@
+<div style="width: {{width}}px;height: {{height}}; " class="sidebar">
+
+        <div class="split left-sidebar">
+                <div class="logo-wrapper">
+                        <mat-icon
+                                [ngStyle]="{'padding-left': width === 100 ? '15px' : (  width === 246 ? '77px' : null) }"
+                                class={{matIconSizeLogo}} svgIcon={{logoMobile}}></mat-icon>
+                </div>
+
+                <!-- <hr/> -->
+
+                <ul [ngStyle]="{'padding-left': width === 100 ? '0px' : (  width === 246 ? '43.5px' : null) }">
+                        <li class="first">
+                                <button class="collapse-logo" (click)="toggleCollapse()">
+                                        <mat-icon
+                                                [ngStyle]="{'padding-left': width === 100 ? '74.5px' : (  width === 246 ? '177px' : null) }"
+                                                class="mat-icon-size-slider" svgIcon="slider"></mat-icon>
+                                </button>
+                        </li>
+
+                        <a class="remove-underline-link" routerLink="/dashboard">
+                                <li
+                                        [ngStyle]="{'display': width === 100 ? 'contents' : (  width === 246 ? 'table' : null) }">
+                                        <mat-icon
+                                                [ngStyle]="{'padding-left': width === 100 ? '39px' : (  width === 246 ? '0px' : null) }"
+                                                class="mat-icon-size-menu" svgIcon="dashboard"></mat-icon>
+                                        <span [ngStyle]="{'padding-left': width === 100 ? '13px' : (  width === 246 ? '16.5px' : null) }"
+                                                class="span-item">Dashboard</span>
+                                </li>
+                        </a>
+                        <a class="remove-underline-link"
+                                href="https://v1.credefi.finance/profile/loans/lent/portfolio" target="_blank">
+                                <li
+                                        [ngStyle]="{'display': width === 100 ? 'contents' : (  width === 246 ? 'table' : null) }">
+                                        <mat-icon
+                                                [ngStyle]="{'padding-left': width === 100 ? '39px' : (  width === 246 ? '0px' : null) }"
+                                                class="mat-icon-size-menu" svgIcon="lend"></mat-icon>
+
+                                        <span [ngStyle]="{'padding-left': width === 100 ? '26.5px' : (  width === 246 ? '16.5px' : null) }"
+                                                class="span-item">Lend(platform v1)</span>
+
+                                </li>
+                        </a>
+
+                        <a class="remove-underline-link" routerLink="/earn/autonomous-earning">
+                                <li
+                                        [ngStyle]="{'display': width === 100 ? 'contents' : (  width === 246 ? 'table' : null) }">
+                                        <mat-icon
+                                                [ngStyle]="{'padding-left': width === 100 ? '39px' : (  width === 246 ? '0px' : null) }"
+                                                class="mat-icon-size-menu" svgIcon="wallet"></mat-icon>
+                                        <span [ngStyle]="{'padding-left': width === 100 ? '27px' : (  width === 246 ? '16.5px' : null) }"
+                                                class="span-item">Autonomous earning</span>
+                                </li>
+                        </a>
+
+                        <a class="remove-underline-link" href="https://v1.credefi.finance/profile/dashboard/stake" target="_blank">
+                                <li
+                                        [ngStyle]="{'display': width === 100 ? 'contents' : (  width === 246 ? 'table' : null) }">
+
+                                        <mat-icon
+                                                [ngStyle]="{'padding-left': width === 100 ? '39px' : (  width === 246 ? '0px' : null) }"
+                                                class="mat-icon-size-menu" svgIcon="stake"></mat-icon>
+                                        <span [ngStyle]="{'padding-left': width === 100 ? '30px' : (  width === 246 ? '16.5px' : null) }"
+                                                class="span-item">Stake(platform v1)</span>
+                                </li>
+                        </a>
+                        <a class="remove-underline-link" routerLink="/wallet">
+                                <li
+                                        [ngStyle]="{'display': width === 100 ? 'contents' : (  width === 246 ? 'table' : null) }">
+                                        <mat-icon
+                                                [ngStyle]="{'padding-left': width === 100 ? '39px' : (  width === 246 ? '0px' : null) }"
+                                                class="mat-icon-size-menu" svgIcon="wallet"></mat-icon>
+                                        <span [ngStyle]="{'padding-left': width === 100 ? '27px' : (  width === 246 ? '16.5px' : null) }"
+                                                class="span-item">Wallet</span>
+                                </li>
+                        </a>
+                        <a class="remove-underline-link" routerLink="/transactions">
+                                <li *ngIf="width === 246">
+
+                                        <mat-icon class="mat-icon-size-menu" svgIcon="allTransactions"></mat-icon>
+                                        <span class="span-item">All Transactions</span>
+
+                                </li>
+                        </a>
+                        <a class="remove-underline-link" routerLink="/dashboard">
+                                <li *ngIf="width === 246">
+                                        <mat-icon class="mat-icon-size-menu" svgIcon="goBack"></mat-icon>
+                                        <span class="span-item">Go back to main</span>
+                                </li>
+                        </a>
+                </ul>
+
+        </div>
+
+        <div *ngIf="width === 246" class="sidebar-footer">
+                <footer class="footer-sidebar">
+                        <a href="https://web.telegram.org/k/#@credefi" target="_blank"><mat-icon class="footer-items-0" svgIcon="telegram"></mat-icon></a>
+                        <a href="https://www.facebook.com/credefi.finance" target="_blank"><mat-icon class="footer-items-1" svgIcon="facebook20"></mat-icon></a>
+                        <a href="https://twitter.com/credefi_finance" target="_blank"><mat-icon class="footer-items-2" svgIcon="twitter"></mat-icon></a>
+                        <a href="https://www.linkedin.com/company/credefi" target="_blank"><mat-icon class="footer-items-3" svgIcon="linkedin"></mat-icon></a>
+                </footer>
+
+        </div>
+
+</div>

@@ -1,0 +1,71 @@
+import { NgFor, SlicePipe } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { Router, RouterLink } from '@angular/router';
+import { AutoCompleteModule } from 'src/app/directives/autocomplete';
+import { IObjectKeys } from 'src/app/helpers/interfaces';
+import { ErrorModule } from 'src/app/pipes/error';
+import { UserProvider } from 'src/app/providers';
+
+@Component({
+  selector: 'app-token',
+  templateUrl: './index.html',
+  styleUrls: ['./style.scss'],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    NgFor,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    ErrorModule,
+    AutoCompleteModule,
+    SlicePipe,
+    RouterLink
+  ]
+})
+
+export class TokenComponent {
+
+  isSubmit = false;
+
+  form = new FormGroup({
+    token: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(255),
+    ]),
+  });
+
+  @Input() translations: IObjectKeys;
+
+  constructor(
+    private router: Router,
+    private userProvider: UserProvider,
+    private changeRef: ChangeDetectorRef,
+  ) { }
+
+  onSubmit() {
+    if (this.form.valid) {
+      this.isSubmit = true;
+      this.userProvider.validateToken(this.form.value).subscribe(({ result, errors }) => {
+        this.isSubmit = false;
+
+        if (errors) {
+          for (let key in errors) {
+            const parsedErrors = errors[key].map((item: string) => {
+              return this.translations[item];
+            })
+            this.form.controls[key].setErrors({ 'incorrect': parsedErrors });
+          }
+          return this.changeRef.markForCheck();
+        }
+
+        return this.router.navigateByUrl('/');
+
+      });
+    }
+  }
+
+}
